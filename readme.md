@@ -30,4 +30,4 @@ Example OK query uris:
 
 * Importing/Exporting of save states is supported.
 * The keybindings are remapped so that all the inputs should be supported by a normal keyboard, but can be changed on line 26 of `assets/base.js`:
-![Controller Layout Map](./assets/controller_layout.png =500x)
+<img src="./assets/controller_layout.png" alt="Controller Layout Map" width="500" />
