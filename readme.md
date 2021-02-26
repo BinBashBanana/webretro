@@ -1,5 +1,5 @@
 # webretro
-[RetroArch](https://github.com/libretro) in your browser!
+[RetroArch](https://github.com/libretro) ported to WASM with emscripten!
 
 This was initially part of gfiles, but I decided to split it off.
 
@@ -30,4 +30,4 @@ Example OK query uris:
 
 * Importing/Exporting of save states is supported.
 * The keybindings are remapped so that all the inputs should be supported by a normal keyboard, but can be changed on line 26 of `assets/base.js`:
-<img src="./assets/controller_layout.png" alt="Controller Layout Map" width="500" />
+<img src="./assets/controller_layout.png" alt="Controller Layout Map" width="600" />
