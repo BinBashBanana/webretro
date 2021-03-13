@@ -29,5 +29,6 @@ Example OK query uris:
 ## Additional
 
 * Importing/Exporting of save states is supported.
+* SRAM is saved to localStorage per rom name. (Autosaves every 5 minutes by default)
 * The keybindings are remapped so that all the inputs should be supported by a normal keyboard, but can be changed on line 26 of `assets/base.js`:
 <img src="./assets/controller_layout.png" alt="Controller Layout Map" width="600" />
