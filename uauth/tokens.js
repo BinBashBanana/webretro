@@ -1,8 +1,8 @@
 // Google Drive
 var googleProjectId = "hallowed-digit-311307";
-var googleApiKey = "AIzaSyAUz-Um6_rcR8X1vuX1O0ywC-q6pYZFt_c";
-var googleOauthClientId = "478810195063-are80pqls62akva4kbe6phavidr00mna.apps.googleusercontent.com";
-// If it asks you, use this scope: https://www.googleapis.com/auth/drive.file
+var googleApiKey = "AIzaSyDuKbs32MBOZw87EJi0dsPVNHx6D4_QTOQ";
+var googleOauthClientId = "478810195063-c83gm38hf14o08gg4oqggql7pp9dqbdl.apps.googleusercontent.com";
+// If it asks you, use this scope: https://www.googleapis.com/auth/drive.readonly
 
 // Dropbox
 var dropboxAppKey = "2556z2wtdog5rop";

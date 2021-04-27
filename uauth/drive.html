@@ -43,7 +43,7 @@
 		
 		var fileTypes = queries.exts ? queries.exts.split(",") : [];
 		
-		var scope = ["https://www.googleapis.com/auth/drive.file"];
+		var scope = ["https://www.googleapis.com/auth/drive.readonly"];
 		
 		var pickerApiLoaded = false;
 		var oauthToken;
@@ -107,7 +107,7 @@
 				document.body.innerHTML += "<h1 class='center'>Loading... Do not close this window.</h1>";
 				var file = data.docs[0];
 				var xhr = new XMLHttpRequest();
-				xhr.open('GET', "https://www.googleapis.com/drive/v2/files/" + file.id + "?alt=media&source=downloadUrl", true);
+				xhr.open('GET', "https://www.googleapis.com/drive/v3/files/" + file.id + "?alt=media&source=downloadUrl", true);
 				xhr.setRequestHeader('Authorization', 'Bearer ' + oauthToken);
 				xhr.responseType = "arraybuffer";
 				xhr.onload = function() {
