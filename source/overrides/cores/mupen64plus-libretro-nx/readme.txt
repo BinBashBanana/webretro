@@ -2,4 +2,4 @@ These modifications were made by ToadKing: https://github.com/ToadKing/mupen64pl
 
 TODO:
 
-- gles2 (glsm/glsym?)
+- gles2 support
