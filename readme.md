@@ -13,10 +13,11 @@ These 5 cores are included with the repository (ROMs **NOT** included):
 
 ## How to use
 
-The asset bundle will be fetched from GitHub using jsdelivr by default. You can change this option on line 9 of `assets/base.js` (example alternate value: `"./"`).
+The asset bundle will be fetched from GitHub using jsdelivr by default. You can change this option on line 10 of `assets/base.js` (example alternate value: `"./"`).
 
 Query string options:
 * `core` - specify the libretro core to use, i.e. `genesis_plus_gx`, `mgba`, `mupen64plus_next`, `nestopia`, `snes9x`. `autodetect` can also be used, which attempts to find the correct core for the ROM (slower to load because the core is loaded after the ROM) (if not specified, the user will be shown a list of the default cores).
+* `system` - same as above, but will attempt to detect the core based on the specified system, i.e. `gba`, `genesis`, `nes`, `nintendo 64`, `snes`. If both `core` and `system` are specified, `core` will override `system`.
 * `rom` - will attempt to fetch a ROM from the `./roms/` directory on the server, or an absolute url (including protocol), e.g. `mario3.nes` (if not specified, the user will be prompted to upload a ROM).
 * `nobundle` if this exists, the bundle fetch will be skipped.
 * `console` if this exists, the console window will open on load.
@@ -29,6 +30,15 @@ Example OK query uris:
 * `?core=genesis_plus_gx`
 * `?`
 
+## Embed API
+
+You can easily embed webretro on your site by using the api provided in `embed/embed.js`. You can see an example of it [here](https://binbashbanana.github.io/webretro/embed/embed-example.html).
+
+How to use: `webretroEmbed(domNodeToAppendTo, webretroPath, queries)` (returns the new iframe node that it creates)
+* `domNodeToAppendTo` - the element that you want webretro to appear in.
+* `webretroPath` - the path to the index of the webretro instance.
+* `queries` - object containing the query string options shown above.
+
 ## Additional
 
 * The user can upload their ROM directly, or using Google Drive/Dropbox/OneDrive.
@@ -37,5 +47,5 @@ Example OK query uris:
 * ROMs can be inside of zip files (The ROM file name is used in this case, instead of the zip file name).
 * Cheat codes are supported.
 * SMAS brick fix should automatically be softpatched to SMAS ROMs.
-* The keybindings are remapped so that all the inputs should be supported by a normal keyboard, but can be changed on line 10 of `assets/base.js`:
+* The keybindings are remapped so that all the inputs should be supported by a normal keyboard, but can be changed on line 11 of `assets/base.js`:
 <img src="./assets/controller_layout.png" alt="Controller Layout Map" width="600" />
