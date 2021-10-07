@@ -1,8 +1,8 @@
-import os
+import os, json
 
 wpaths = []
 wfiles = []
-outfile = "indexedfiles.txt"
+outfile = "indexedfiles-out.txt"
 
 if os.path.exists(outfile):
 	os.remove(outfile)
@@ -16,6 +16,4 @@ for root, dirs, files in os.walk("."):
 
 wpaths = wpaths[1:]
 
-print(wpaths)
-
-open(outfile, "w").write("\n".join(wfiles))
+open(outfile, "w").write(json.dumps(wpaths)+",,,\n"+("\n".join(wfiles)))
