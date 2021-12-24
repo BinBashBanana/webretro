@@ -32,14 +32,19 @@ var LibraryRWebCam = {
       RWC.contexts[c].glTex = caps1 & (1 << RWC.RETRO_CAMERA_BUFFER_OPENGL_TEXTURE);
       RWC.contexts[c].rawFb = caps1 & (1 << RWC.RETRO_CAMERA_BUFFER_RAW_FRAMEBUFFER);
 
-      navigator.mediaDevices.getUserMedia({video: true, audio: false}).then(function(stream) {
-         RWC.contexts[c].videoElement.autoplay = true;
-         RWC.contexts[c].videoElement.srcObject = stream;
-         RWC.contexts[c].runMode = 2;
-      }).catch(function (err) {
-         console.log("webcam request failed", err);
+      if (!window.disableWebCam) {
+         navigator.mediaDevices.getUserMedia({video: true, audio: false}).then(function(stream) {
+            RWC.contexts[c].videoElement.autoplay = true;
+            RWC.contexts[c].videoElement.srcObject = stream;
+            RWC.contexts[c].runMode = 2;
+         }).catch(function (err) {
+            console.log("Webcam request failed", err);
+            RWC.runMode = 0;
+         });
+      } else {
+         console.log("Webcam disabled.");
          RWC.runMode = 0;
-      });
+      }
 
       // for getting/storing texture id in GL mode
       if (!RWC.tmp) RWC.tmp = _malloc(4);

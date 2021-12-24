@@ -85,6 +85,11 @@ void cmd_undo_load_state(void)
    command_event(CMD_EVENT_UNDO_LOAD_STATE, NULL);
 }
 
+void cmd_reload_config(void)
+{
+   command_event(CMD_EVENT_RELOAD_CONFIG, NULL);
+}
+
 static void frontend_emscripten_get_env(int *argc, char *argv[],
       void *args, void *params_data)
 {

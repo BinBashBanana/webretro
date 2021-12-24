@@ -13,7 +13,7 @@ These 5 cores are included with the repository (ROMs **NOT** included):
 
 ## How to use
 
-The asset bundle will be fetched from GitHub using jsdelivr by default. You can change this option on line 10 of `assets/base.js` (example alternate value: `"./"`).
+The asset bundle will be fetched from GitHub using jsdelivr by default. You can change this option on line 10 and 11 of `assets/base.js` (example alternate value: `"./"`).
 
 Query string options:
 * `core` - specify the libretro core to use, i.e. `genesis_plus_gx`, `mgba`, `mupen64plus_next`, `nestopia`, `snes9x`. `autodetect` can also be used, which attempts to find the correct core for the ROM (slower to load because the core is loaded after the ROM) (if not specified, the user will be shown a list of the default cores).
@@ -45,7 +45,9 @@ How to use: `webretroEmbed(domNodeToAppendTo, webretroPath, queries)` (returns t
 * Importing/Exporting of save states and SRAM is supported.
 * States and SRAM are saved to indexedDB per ROM name. (SRAM autosaves every 5 minutes by default)
 * ROMs can be inside of zip files (The ROM file name is used in this case, instead of the zip file name).
+* Users can take screenshots, and download them individually, or all at once.
+* Users can recover saves or states from roms that were lost or renamed.
 * Cheat codes are supported.
 * SMAS brick fix should automatically be softpatched to SMAS ROMs.
-* The keybindings are remapped so that all the inputs should be supported by a normal keyboard, but can be changed on line 11 of `assets/base.js`:
+* The keybinds are remapped so that all the inputs should be supported by a normal keyboard, but can be changed by the user. The default keybinds can be changed on line 12 of `assets/base.js`:
 <img src="./assets/controller_layout.png" alt="Controller Layout Map" width="600" />
