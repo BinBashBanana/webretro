@@ -34,12 +34,7 @@
 		<input type="button" id="authorizebutton" class="center" onclick="loadPicker()" value="Authorize">
 		<script src="tokens.js"></script>
 		<script>
-		var search = decodeURIComponent(window.location.search).substring(1).split("&");
-		var queries = {};
-		for (var i = 0; i < search.length; i++) {
-			var p = search[i].split("=");
-			queries[p[0]] = p[1];
-		}
+		var queries = Object.fromEntries(window.location.search.substring(1).split("&").map(i => i.split("=")).map(i => i.map(i => i && decodeURIComponent(i))));
 		
 		var fileTypes = queries.exts ? queries.exts.split(",") : [];
 		
@@ -100,7 +95,7 @@
 		
 		window.addEventListener("unload", function() {
 			if (!isDone) finish("cancelled");
-		}, false)
+		}, false);
 		
 		function pickerCallback(data) {
 			if (data.action == google.picker.Action.PICKED) {

@@ -9,27 +9,30 @@
 			top: 50%;
 			transform: translate(-50%, -50%);
 			margin: 0px;
+			text-align: center;
 		}
 		</style>
 	</head>
 	<body>
-		<h1 class='center'>Choose a file... Do not close this window.</h1>
+		<div class="center">
+			<h1>Choose a file...</h1>
+			<h2>Make sure you have popups enabled!</h2>
+		</div>
 		<script src="https://www.dropbox.com/static/api/2/dropins.js"></script>
 		<script src="https://js.live.net/v7.2/OneDrive.js"></script>
 		<script src="tokens.js"></script>
 		<script>
-		var search = decodeURIComponent(window.location.search).substring(1).split("&");
-		var queries = {};
-		for (var i = 0; i < search.length; i++) {
-			var p = search[i].split("=");
-			queries[p[0]] = p[1];
-		}
+		var queries = Object.fromEntries(window.location.search.substring(1).split("&").map(i => i.split("=")).map(i => i.map(i => i && decodeURIComponent(i))));
 		
 		var fileTypes = queries.exts ? queries.exts.split(",") : [];
 		
 		function finish(message, name, data) {
-			window.parent.postMessage({webretro: {message: message, name: name, data: data}}, "*");
+			window.opener.postMessage({webretro: {timestamp: parseInt(queries.timestamp), message: message, name: name, data: data}}, "*");
 		}
+		
+		window.addEventListener("unload", function() {
+			if (queries.type) finish("cancelled");
+		}, false);
 		
 		function xhr(loc, success, error) {
 			var xhr = new XMLHttpRequest();

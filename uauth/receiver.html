@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Choose a File</title>
+	</head>
+	<body>
+		<h2>I'm supposed to be an invisible iframe... (you shouldn't see this)</h2>
+		<script>
+		let uauthBC = new BroadcastChannel("uauth");
+		window.addEventListener("message", function(e) {
+			uauthBC.postMessage(e.data);
+			window.parent.postMessage("acknowledged", "*");
+		}, false);
+		</script>
+	</body>
+</html>
