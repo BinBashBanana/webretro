@@ -31,7 +31,9 @@
 		</style>
 	</head>
 	<body>
-		<input type="button" id="authorizebutton" class="center" onclick="loadPicker()" value="Authorize">
+		<input type="button" id="authorizebutton" class="center" value="Authorize">
+		<script src="https://apis.google.com/js/api.js"></script>
+		<script src="https://accounts.google.com/gsi/client"></script>
 		<script src="tokens.js"></script>
 		<script>
 		var queries = Object.fromEntries(window.location.search.substring(1).split("&").map(i => i.split("=")).map(i => i.map(i => i && decodeURIComponent(i))));
@@ -44,30 +46,31 @@
 		var oauthToken;
 		
 		var authorizeButton = document.getElementById("authorizebutton");
-		
-		function loadPicker() {
-			gapi.load('auth', {'callback': onAuthApiLoad});
-			gapi.load('picker', {'callback': onPickerApiLoad});
-		}
-		
-		function onAuthApiLoad() {
-			window.gapi.auth.authorize({'client_id': googleOauthClientId, 'scope': scope, 'immediate': false}, handleAuthResult);
-		}
+		authorizeButton.onclick = loadPicker;
 		
 		function onPickerApiLoad() {
 			pickerApiLoaded = true;
-			createPicker();
+			tryCreatePicker();
 		}
 		
-		function handleAuthResult(authResult) {
-			if (authResult && !authResult.error) {
+		function handleTokenResponse(tokenResponse) {
+			if (tokenResponse && tokenResponse.access_token) {
 				authorizeButton.style.display = "none";
-				oauthToken = authResult.access_token;
-				createPicker();
+				oauthToken = tokenResponse.access_token;
+				tryCreatePicker();
 			}
 		}
 		
-		function createPicker(config) {
+		function getAuth() {
+			google.accounts.oauth2.initTokenClient({"client_id": googleOauthClientId, "scope": scope.join(" "), callback: handleTokenResponse}).requestAccessToken();
+		}
+		
+		function loadPicker() {
+			gapi.load("picker", {"callback": onPickerApiLoad});
+			getAuth();
+		}
+		
+		function tryCreatePicker(config) {
 			if (pickerApiLoaded && oauthToken) {
 				var picker = new google.picker.PickerBuilder()
 					.setAppId(googleProjectId)
@@ -102,8 +105,8 @@
 				document.body.innerHTML += "<h1 class='center'>Loading... Do not close this window.</h1>";
 				var file = data.docs[0];
 				var xhr = new XMLHttpRequest();
-				xhr.open('GET', "https://www.googleapis.com/drive/v3/files/" + file.id + "?alt=media&source=downloadUrl", true);
-				xhr.setRequestHeader('Authorization', 'Bearer ' + oauthToken);
+				xhr.open("GET", "https://www.googleapis.com/drive/v3/files/" + file.id + "?alt=media&source=downloadUrl", true);
+				xhr.setRequestHeader("Authorization", "Bearer " + oauthToken);
 				xhr.responseType = "arraybuffer";
 				xhr.onload = function() {
 					finish("success", file.name, this.response);
@@ -118,6 +121,5 @@
 		}
 		
 		</script>
-		<script src="https://apis.google.com/js/api.js"></script>
 	</body>
 </html>
