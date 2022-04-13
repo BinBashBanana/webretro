@@ -1,4 +1,4 @@
-[["", "assets"], ["/assets", "menu_widgets"], ["/assets", "ozone"], ["/assets/ozone", "png"], ["/assets/ozone/png", "dark"], ["/assets/ozone/png", "sidebar"], ["/assets", "xmb"], ["/assets/xmb", "monochrome"], ["/assets/xmb/monochrome", "png"], ["", "shaders"], ["/shaders", "shaders_glsl"], ["/shaders/shaders_glsl", "anti-aliasing"], ["/shaders/shaders_glsl/anti-aliasing", "shaders"], ["/shaders/shaders_glsl/anti-aliasing/shaders", "aa-shader-4.0-level2"], ["/shaders/shaders_glsl/anti-aliasing/shaders", "reverse-aa-post3x"], ["/shaders/shaders_glsl", "cubic"], ["/shaders/shaders_glsl/cubic", "shaders"], ["/shaders/shaders_glsl", "interpolation"], ["/shaders/shaders_glsl/interpolation", "shaders"], ["/shaders/shaders_glsl", "linear"], ["/shaders/shaders_glsl", "scalehq"], ["/shaders/shaders_glsl/scalehq", "shaders"]],,,
+[["", "assets"], ["/assets", "menu_widgets"], ["/assets", "ozone"], ["/assets/ozone", "png"], ["/assets/ozone/png", "dark"], ["/assets/ozone/png", "gruvbox_dark"], ["/assets/ozone/png", "light"], ["/assets/ozone/png", "nord"], ["/assets/ozone/png", "sidebar"], ["/assets", "xmb"], ["/assets/xmb", "monochrome"], ["/assets/xmb/monochrome", "png"], ["", "shaders"], ["/shaders", "shaders_glsl"], ["/shaders/shaders_glsl", "anti-aliasing"], ["/shaders/shaders_glsl/anti-aliasing", "shaders"], ["/shaders/shaders_glsl/anti-aliasing/shaders", "aa-shader-4.0-level2"], ["/shaders/shaders_glsl/anti-aliasing/shaders", "reverse-aa-post3x"], ["/shaders/shaders_glsl", "cubic"], ["/shaders/shaders_glsl/cubic", "shaders"], ["/shaders/shaders_glsl", "interpolation"], ["/shaders/shaders_glsl/interpolation", "shaders"], ["/shaders/shaders_glsl", "linear"], ["/shaders/shaders_glsl", "scalehq"], ["/shaders/shaders_glsl/scalehq", "shaders"]],,,
 /assets/menu_widgets/msg_queue_icon.png
 /assets/menu_widgets/msg_queue_icon_outline.png
 /assets/menu_widgets/msg_queue_icon_rect.png
@@ -10,6 +10,18 @@
 /assets/ozone/png/dark/cursor_noborder.png
 /assets/ozone/png/dark/cursor_static.png
 /assets/ozone/png/dark/switch.png
+/assets/ozone/png/gruvbox_dark/check.png
+/assets/ozone/png/gruvbox_dark/cursor_noborder.png
+/assets/ozone/png/gruvbox_dark/cursor_static.png
+/assets/ozone/png/gruvbox_dark/switch.png
+/assets/ozone/png/light/check.png
+/assets/ozone/png/light/cursor_noborder.png
+/assets/ozone/png/light/cursor_static.png
+/assets/ozone/png/light/switch.png
+/assets/ozone/png/nord/check.png
+/assets/ozone/png/nord/cursor_noborder.png
+/assets/ozone/png/nord/cursor_static.png
+/assets/ozone/png/nord/switch.png
 /assets/ozone/png/sidebar/add.png
 /assets/ozone/png/sidebar/favorites.png
 /assets/ozone/png/sidebar/history.png
