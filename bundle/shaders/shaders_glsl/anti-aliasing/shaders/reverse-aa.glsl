@@ -1,5 +1,3 @@
-#version 130
-
 /*
    Reverse Antialiasing Shader
 
@@ -139,17 +137,17 @@ uniform COMPAT_PRECISION float REVERSEAA_SHARPNESS;
 
 vec3 res2x(vec3 pre2, vec3 pre1, vec3 px, vec3 pos1, vec3 pos2)
 {
-    vec3 t, m;
-    mat4x3 pre = mat4x3(pre2, pre1,   px, pos1);
-    mat4x3 pos = mat4x3(pre1,   px, pos1, pos2);
-    mat4x3  df = pos - pre;
+    vec4 t, m;
+    mat4 pre = mat4(vec4(pre2, 1.0), vec4(pre1, 1.0),   vec4(px, 1.0), vec4(pos1, 1.0));
+    mat4 pos = mat4(vec4(pre1, 1.0),   vec4(px, 1.0), vec4(pos1, 1.0), vec4(pos2, 1.0));
+    mat4  df = pos - pre;
 
-    m = 0.5 - abs(px - 0.5);
+    m = 0.5 - abs(vec4(px, 1.0) - 0.5);
     m = REVERSEAA_SHARPNESS * min(m, min(abs(df[1]), abs(df[2])));
     t = (7. * (df[1] + df[2]) - 3. * (df[0] + df[3])) / 16.;
     t = clamp(t, -m, m);
 
-    return t;
+    return t.xyz;
 }
 
 void main()

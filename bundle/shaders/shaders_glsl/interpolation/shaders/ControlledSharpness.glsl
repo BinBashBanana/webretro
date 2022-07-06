@@ -1,5 +1,3 @@
-#version 130
-
 //https://www.desmos.com/calculator/3zhzwbfrxd
 
 #pragma parameter sharpness "Sharpness" 0.4 0.001 0.95 0.05

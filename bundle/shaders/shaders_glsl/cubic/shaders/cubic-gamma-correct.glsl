@@ -1,5 +1,3 @@
-#version 130
-
 #if defined(VERTEX)
 
 #if __VERSION__ >= 130

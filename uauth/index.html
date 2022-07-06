@@ -38,10 +38,10 @@
 		if (queries.type == "drive") {
 			// Google Drive
 			
-			var dwidth = window.screen.width - 320;
-			var dheight = window.screen.height - 240;
-			var dleft = 160;
-			var dtop = 120;
+			var dwidth = window.outerWidth - 320;
+			var dheight = window.outerHeight - 240;
+			var dleft = (window.innerWidth - dwidth) / 2 + window.screenLeft;
+			var dtop = (window.innerHeight - dheight) / 2 + window.screenTop;
 			window.open("drive.html?exts=" + fileTypes.join(","), "Choose a File", "left=" + dleft + ",top=" + dtop + ",width=" + dwidth + ",height=" + dheight);
 		} else if (queries.type == "dropbox") {
 			// Dropbox

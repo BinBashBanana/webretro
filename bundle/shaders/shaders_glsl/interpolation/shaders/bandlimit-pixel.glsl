@@ -1,5 +1,3 @@
-#version 130
-
 /*
  * Bandlimited pixel footprint shader.
  * Author: Themaister

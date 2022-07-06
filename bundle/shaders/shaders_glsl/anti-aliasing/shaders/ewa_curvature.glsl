@@ -1,5 +1,3 @@
-#version 130
-
 /**
 * Practical Elliptical Texture Filtering on the GPU
 * Copyright 2010-2011 Pavlos Mavridis, All rights reserved.
