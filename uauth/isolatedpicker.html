@@ -51,7 +51,7 @@
 		function finish(message, name, data) {
 			function waitForReceiverLoad() {
 				if (receiverLoaded) {
-					receiverFrame.contentWindow.postMessage({fwOrigin: window.location.origin, webretro: {timestamp: parseInt(queries.timestamp), message: message, name: name, data: data}}, "*");
+					receiverFrame.contentWindow.postMessage({webretro: {timestamp: parseInt(queries.timestamp), message: message, name: name, data: data}}, "*");
 				} else {
 					setTimeout(waitForReceiverLoad, 250);
 				}
