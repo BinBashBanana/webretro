@@ -1,22 +1,22 @@
 # Building from source
 
 Building cores is a 3-step process:
-1. [Setup](#step-1--setup--only-do-this-step-once-) (you only need to do this once)
+1. [Setup](#step-1-setup-only-do-this-step-once) (you only need to do this once)
 * [Setup WSL2 if on windows](#setup-wsl2-if-on-windows)
 * [Setup git](#setup-git)
 * [Setup emscripten](#setup-emscripten)
     * [Patch emscripten](#patch-emscripten)
 
-2. [Build the core](#step-2--building-the-core) (repeat as needed)
+2. [Build the core](#step-2-building-the-core) (repeat as needed)
 * [Clone the core](#clone-the-core) from GitHub if you haven't already
     * [Patch the core](#patch-the-core) if needed
-* [Set emscripten env vars](#set-emscripten-environment-variables--1-) in your shell
+* [Set emscripten env vars](#set-emscripten-environment-variables-1) in your shell
 * [Build the core](#build-the-core) (will output a `.bc` file that will be used later)
 
-3. [Link core(s) with RetroArch](#step-3--link-core-s--with-retroarch)
+3. [Link core(s) with RetroArch](#step-3-link-cores-with-retroarch)
 * [Clone RetroArch](#clone-retroarch) from GitHub if you haven't already
     * [Patch RetroArch](#patch-retroarch)
-* [Set emscripten env vars](#set-emscripten-environment-variables--2-) in your shell
+* [Set emscripten env vars](#set-emscripten-environment-variables-2) in your shell
 * [Copy the `.bc` files](#copy-the-bc-files) from earlier into the RetroArch repo
     * [Important note](#important-note)
 * [Build RetroArch](#build-retroarch) (this links the core(s))

@@ -37,7 +37,7 @@ These cores are included pre-built with the repository (ROMs **NOT** included):
 * [Features](#features)
 * [How to use](#how-to-use)
 * [Embedding](#embedding)
-* [Todo / Planned features](#todo---Planned-features)
+* [Todo / Planned features](#todo-planned-features)
 * [Building from source](#building-from-source)
 * [Notes](#notes)
 * [Acknowledgements](#acknowledgements)
