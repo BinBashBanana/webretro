@@ -1,3 +1,5 @@
 /roms/
 workstuff.txt
-/backup/
+backup/
+node_modules/
+package-lock.json

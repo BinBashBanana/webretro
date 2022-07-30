@@ -5,16 +5,11 @@ function webretroEmbed(node, path, queries) {
 	// change rom path to absolute if it isn't already
 	if (queries.rom) {
 		var link = document.createElement("a");
-		link.href = /^(http:\/\/|https:\/\/|\/\/)/i.test(queries.rom) ? queries.rom : "roms/" + queries.rom;
+		link.href = (/^(https?:)?\/\//i).test(queries.rom) ? queries.rom : "roms/" + queries.rom;
 		queries.rom = link.href;
 	}
 	
-	var queriesList = Object.keys(queries);
-	var newQueriesList = [];
-	for (var i = 0; i < queriesList.length; i++) {
-		newQueriesList.push(queriesList[i] + "=" + queries[queriesList[i]]);
-	}
-	frame.src = path + "?" + newQueriesList.join("&");
+	frame.src = path + "?" + Object.entries(queries).map(i => i.map(i => i && encodeURIComponent(i))).map(i => i[1] ? i.join("=") : i[0]).join("&");
 	node.appendChild(frame);
 	
 	return frame;

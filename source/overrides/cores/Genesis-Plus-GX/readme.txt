@@ -1,1 +1,0 @@
-This change simply adds O3 optimization to the emscripten build, reducing file size.
