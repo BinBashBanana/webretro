@@ -97,7 +97,7 @@ Mostly long-term:
 
 ## Building from source
 
-[Instructions](./tree/master/source#readme)
+[Instructions](./source#readme)
 
 ## Notes
 
