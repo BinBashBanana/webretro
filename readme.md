@@ -32,15 +32,19 @@ These cores are included pre-built with the repository (ROMs **NOT** included):
 * Yabause (Sega Saturn)
 
 ## Table of contents
-* [Top](#webretro)
-* [Table of contents](#table-of-contents)
-* [Features](#features)
-* [How to use](#how-to-use)
-* [Embedding](#embedding)
-* [Todo / Planned features](#todo-planned-features)
-* [Building from source](#building-from-source)
-* [Notes](#notes)
-* [Acknowledgements](#acknowledgements)
+- [webretro](#webretro)
+    - [Latest version: v6.5](#latest-version-v65)
+  - [Table of contents](#table-of-contents)
+  - [Features](#features)
+  - [How to use](#how-to-use)
+  - [Embedding](#embedding)
+  - [Todo / Planned features](#todo--planned-features)
+  - [Building from source](#building-from-source)
+  - [Run from docker](#run-from-docker)
+    - [Build your image](#build-your-image)
+    - [Run the server](#run-the-server)
+  - [Notes](#notes)
+  - [Acknowledgements](#acknowledgements)
 
 ## Features
 
@@ -98,6 +102,20 @@ Mostly long-term:
 ## Building from source
 
 [Instructions](./source#readme)
+
+## Run from docker 
+
+### Build your image
+
+```shell=
+docker build -t xxxsen/webretro .
+```
+
+### Run the server
+
+```shell=
+docker run -it --rm -v /path/to/your/roms:/usr/share/nginx/html/roms:ro -p 8080:80 xxxsen/webretro
+```
 
 ## Notes
 
