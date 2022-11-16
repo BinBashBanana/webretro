@@ -7,16 +7,19 @@ if (!window.fetch || !indexedDB) {
 }
 
 var fsBundleDirs, fsBundleFiles, loadStatus, romName, isPaused, wasmReady, bundleReady, biosReady, romMode, core, wIdb, romUploadCallback, latestVersion, mainCompleted, currentManager, romUploadsReady, realRomExt, currentTheme;
-if (standaloneOfflineCheck == false) {
-	var bundleCdn = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro@master/";
-	var bundleCdnLatest = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/";
-} else {
+if (standaloneOfflineCheck == true) {
 	var bundleCdn = "./../"
 	var bundleCdnLatest = "./../"
+	var biosCdn = "./../RetroPieBIOS/BIOS/" // https://github.com/archtaurus/RetroPieBIOS goes here.
+	var infoJsonUrl = "./../assets/info.json"
+	var standaloneDownloadUrl = "./../utils/webretro-standalone.html"
+} else {
+	var bundleCdn = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro@master/";
+	var bundleCdnLatest = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/";
+	var biosCdn = "https://cdn.jsdelivr.net/gh/archtaurus/RetroPieBIOS@master/BIOS/";
+	var infoJsonUrl = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/assets/info.json";
+	var standaloneDownloadUrl = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/utils/webretro-standalone.html";
 }
-var biosCdn = "https://cdn.jsdelivr.net/gh/archtaurus/RetroPieBIOS@master/BIOS/";
-var infoJsonUrl = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/assets/info.json";
-var standaloneDownloadUrl = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/utils/webretro-standalone.html";
 var relativeBase = (typeof relativeBase == "string") ? relativeBase : "";
 var coreDir = "cores/";
 var bioses = {"a5200": {path: "", files: ["5200.rom"]}, "atari800": {path: "", files: ["5200.rom"]}, "freechaf": {path: "", files: ["sl31253.bin", "sl31254.bin", "sl90025.bin"]}, "freeintv": {path: "", files: ["exec.bin", "grom.bin"]}, "gearcoleco": {path: "", files: ["colecovision.rom"]}, "handy": {path: "", files: ["lynxboot.img"]}, "mednafen_psx": {path: "", files: ["scph5500.bin", "scph5501.bin", "scph5502.bin"]}, "mednafen_psx_hw": {path: "", files: ["scph5500.bin", "scph5501.bin", "scph5502.bin"]}, "neocd": {path: "neocd/", files: ["neocd_z.rom"]}, "o2em": {path: "", files: ["c52.bin", "g7400.bin", "jopac.bin", "o2rom.bin"]}, "opera": {path: "", files: ["panafz10-norsa.bin", "panafz10ja-anvil-kanji.bin"]}, "px68k": {path: "keropi/", files: ["cgrom.dat", "iplrom.dat", "iplrom30.dat", "iplromco.dat", "iplromxv.dat"]}, "yabasanshiro": {path: "", files: ["saturn_bios.bin"]}, "yabause": {path: "", files: ["saturn_bios.bin"]}};
