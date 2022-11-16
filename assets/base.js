@@ -1,16 +1,19 @@
 var fsBundleDirs, fsBundleFiles, loadStatus, romName, isPaused, wasmReady, bundleReady, biosReady, romMode, core, wIdb, romUploadCallback, latestVersion, mainCompleted, currentManager, romUploadsReady, realRomExt, currentTheme;
 if (noCdn == true) {
 	var bundleCdn = "./"
-	var bundleCdnLatest = "./"
-	var biosCdn = "./RetroPieBIOS/BIOS/" // https://github.com/archtaurus/RetroPieBIOS goes here.
+	var bundleCdnLatest = "./".
 	var infoJsonUrl = "./assets/info.json"
 	var standaloneDownloadUrl = "./utils/webretro-standalone.html"
 } else {
 	var bundleCdn = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro@master/";
 	var bundleCdnLatest = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/";
-	var biosCdn = "https://cdn.jsdelivr.net/gh/archtaurus/RetroPieBIOS@master/BIOS/";
 	var infoJsonUrl = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/assets/info.json";
 	var standaloneDownloadUrl = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/utils/webretro-standalone.html";
+}
+if (noBiosCdn == true) {
+	var biosCdn = "./RetroPieBIOS/BIOS/" // https://github.com/archtaurus/RetroPieBIOS goes here
+} else {
+	var biosCdn = "https://cdn.jsdelivr.net/gh/archtaurus/RetroPieBIOS@master/BIOS/";
 }
 var relativeBase = (typeof relativeBase == "string") ? relativeBase : "";
 var coreDir = "./cores/";
