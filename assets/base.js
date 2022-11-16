@@ -1,7 +1,7 @@
 var fsBundleDirs, fsBundleFiles, loadStatus, romName, isPaused, wasmReady, bundleReady, biosReady, romMode, core, wIdb, romUploadCallback, latestVersion, mainCompleted, currentManager, romUploadsReady, realRomExt, currentTheme;
 if (noCdn == true) {
 	var bundleCdn = "./"
-	var bundleCdnLatest = "./".
+	var bundleCdnLatest = "./"
 	var infoJsonUrl = "./assets/info.json"
 	var standaloneDownloadUrl = "./utils/webretro-standalone.html"
 } else {
