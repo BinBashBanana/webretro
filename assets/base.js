@@ -7,8 +7,13 @@ if (!window.fetch || !indexedDB) {
 }
 
 var fsBundleDirs, fsBundleFiles, loadStatus, romName, isPaused, wasmReady, bundleReady, biosReady, romMode, core, wIdb, romUploadCallback, latestVersion, mainCompleted, currentManager, romUploadsReady, realRomExt, currentTheme;
-var bundleCdn = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro@master/";
-var bundleCdnLatest = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/";
+if (standaloneOfflineCheck == false) {
+	var bundleCdn = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro@master/";
+	var bundleCdnLatest = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/";
+} else {
+	var bundleCdn = "./../"
+	var bundleCdnLatest = "./../"
+}
 var biosCdn = "https://cdn.jsdelivr.net/gh/archtaurus/RetroPieBIOS@master/BIOS/";
 var infoJsonUrl = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/assets/info.json";
 var standaloneDownloadUrl = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/utils/webretro-standalone.html";
