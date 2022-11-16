@@ -6,21 +6,21 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
 		<meta name="color-scheme" content="dark light">
 		<meta name="theme-color" content="#333333">
-		<title>webretro (STANDALONE)</title>
+		<title>webretro</title>
 		<meta name="description" content="RetroArch in your browser! Libretro cores compiled to WASM using emscripten, plus a custom UI.">
 		<meta name="robots" content="nofollow">
 		<meta name="og:title" content="webretro">
 		<meta name="og:type" content="website">
-		<meta name="og:image" content="./assets/icons/icon204.png">
+		<meta name="og:image" content="assets/icons/icon204.png">
 		<meta name="og:url" content="https://binbashbanana.github.io/webretro/">
-		<link rel="stylesheet" href="./assets/base.css?v=6.5">
-		<link rel="stylesheet" href="./assets/jswindow.css">
-		<link rel="shortcut icon" href="./assets/icons/icon204.png">
-		<link rel="apple-touch-icon" href="./assets/icons/iconm256.png">
-		<link rel="manifest" href="./manifest.json">
+		<link rel="stylesheet" href="assets/base.css?v=6.5">
+		<link rel="stylesheet" href="assets/jswindow.css">
+		<link rel="shortcut icon" href="assets/icons/icon204.png">
+		<link rel="apple-touch-icon" href="assets/icons/iconm256.png">
+		<link rel="manifest" href="manifest.json">
 		<link rel="canonical" href="https://binbashbanana.github.io/webretro/">
-		<link rel="dns-prefetch" href="https://binbashbanana.github.io/">
-		<script>var standaloneOfflineCheck = true</script>
+		<link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
+		<script>var noCdn = true</script>
 	</head>
 	<body>
 		<div class="main" id="mainarea">
@@ -208,9 +208,9 @@
 						<h2><span id="systemname"></span> Emulator</h2>
 						<input type="button" id="upload" value="Choose ROM File" class="uploadbutton">
 						<br>
-						<img id="googledriveupload" class="uploadbutton uploadimage" title="Google Drive Upload" src="./../assets/icons/googledrive.png">
-						<img id="dropboxupload" class="uploadbutton uploadimage" title="Dropbox Upload" src="./../assets/icons/dropbox.png">
-						<img id="onedriveupload" class="uploadbutton uploadimage" title="OneDrive Upload" src="./../assets/icons/onedrive.png">
+						<img id="googledriveupload" class="uploadbutton uploadimage" title="Google Drive Upload" src="assets/icons/googledrive.png">
+						<img id="dropboxupload" class="uploadbutton uploadimage" title="Dropbox Upload" src="assets/icons/dropbox.png">
+						<img id="onedriveupload" class="uploadbutton uploadimage" title="OneDrive Upload" src="assets/icons/onedrive.png">
 					</div>
 				</div>
 				<div class="source">
@@ -278,15 +278,12 @@
 				</div>
 			</div>
 		</div>
-		<script>
-			var relativeBase = "./../";
-		</script>
-		<script type="text/javascript" src="./assets/zip-2.4.7.min.js"></script>
-		<script type="text/javascript" src="./assets/md5.min.js"></script>
-		<script type="text/javascript" src="./uauth/uauth.js"></script>
-		<script type="text/javascript" src="./assets/jswindow.js"></script>
-		<script type="text/javascript" src="./pwa.js"></script>
-		<script type="text/javascript" src="./assets/charToCodeMap.js?v=6.5"></script>
-		<script type="text/javascript" src="./assets/base.js?v=6.5"></script>
+		<script type="text/javascript" src="assets/zip-2.4.7.min.js"></script>
+		<script type="text/javascript" src="assets/md5.min.js"></script>
+		<script type="text/javascript" src="uauth/uauth.js"></script>
+		<script type="text/javascript" src="assets/jswindow.js"></script>
+		<script type="text/javascript" src="pwa.js"></script>
+		<script type="text/javascript" src="assets/charToCodeMap.js?v=6.5"></script>
+		<script type="text/javascript" src="assets/base.js?v=6.5"></script>
 	</body>
 </html>
