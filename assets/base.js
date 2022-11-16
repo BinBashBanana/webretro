@@ -8,11 +8,11 @@ if (!window.fetch || !indexedDB) {
 
 var fsBundleDirs, fsBundleFiles, loadStatus, romName, isPaused, wasmReady, bundleReady, biosReady, romMode, core, wIdb, romUploadCallback, latestVersion, mainCompleted, currentManager, romUploadsReady, realRomExt, currentTheme;
 if (standaloneOfflineCheck == true) {
-	var bundleCdn = "./../"
-	var bundleCdnLatest = "./../"
-	var biosCdn = "./../RetroPieBIOS/BIOS/" // https://github.com/archtaurus/RetroPieBIOS goes here.
-	var infoJsonUrl = "./../assets/info.json"
-	var standaloneDownloadUrl = "./../utils/webretro-standalone.html"
+	var bundleCdn = "./"
+	var bundleCdnLatest = "./"
+	var biosCdn = "./RetroPieBIOS/BIOS/" // https://github.com/archtaurus/RetroPieBIOS goes here.
+	var infoJsonUrl = "./assets/info.json"
+	var standaloneDownloadUrl = "./utils/webretro-standalone.html"
 } else {
 	var bundleCdn = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro@master/";
 	var bundleCdnLatest = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/";
