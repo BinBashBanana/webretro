@@ -19,7 +19,7 @@
 		<link rel="apple-touch-icon" href="assets/icons/iconm256.png">
 		<link rel="manifest" href="manifest.json">
 		<link rel="canonical" href="https://binbashbanana.github.io/webretro/">
-		<link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
+		<!-- <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/"> -->
 		<script>var noCdn = true</script>
 	</head>
 	<body>
@@ -28,7 +28,7 @@
 				<input type="checkbox" id="menuhider">
 				<label for="menuhider" class="menuhiderlabel"></label>
 				<ul id="menu">
-					<li class="menuback"><a href="." title="Back to core selection"></a></li>
+					<li class="menuback"><a href="./" title="Back to core selection"></a></li>
 					<li>Controls
 						<ul>
 							<li><a id="keybindsbutton" href="">Keybinds</a></li>
@@ -200,7 +200,7 @@
 							</select>
 						</div>
 						<ul class="corelistul">
-							<li><a href="?core=autodetect" class="greyer">AutoDetect (Slower to load)</a></li>
+							<li><a href="./?core=autodetect" class="greyer">AutoDetect (Slower to load)</a></li>
 							<span id="corelist"></span>
 						</ul>
 					</div>
@@ -208,9 +208,9 @@
 						<h2><span id="systemname"></span> Emulator</h2>
 						<input type="button" id="upload" value="Choose ROM File" class="uploadbutton">
 						<br>
-						<img id="googledriveupload" class="uploadbutton uploadimage" title="Google Drive Upload" src="assets/icons/googledrive.png">
-						<img id="dropboxupload" class="uploadbutton uploadimage" title="Dropbox Upload" src="assets/icons/dropbox.png">
-						<img id="onedriveupload" class="uploadbutton uploadimage" title="OneDrive Upload" src="assets/icons/onedrive.png">
+						<img id="googledriveupload" class="uploadbutton uploadimage" title="Google Drive Upload" src="./assets/icons/googledrive.png">
+						<img id="dropboxupload" class="uploadbutton uploadimage" title="Dropbox Upload" src="./assets/icons/dropbox.png">
+						<img id="onedriveupload" class="uploadbutton uploadimage" title="OneDrive Upload" src="./assets/icons/onedrive.png">
 					</div>
 				</div>
 				<div class="source">
@@ -218,7 +218,7 @@
 					<a href="https://github.com/libretro" target="_blank">Libretro</a>
 					<a href="" target="_blank" id="coregithub">Core Github</a>
 					<a href="https://emscripten.org" target="_blank">Emscripten</a>
-					<a href="info/" target="_blank">Info</a>
+					<a href="./info/" target="_blank">Info</a>
 					<span id="versionindicator"></span>
 				</div>
 			</div>
@@ -278,12 +278,12 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="assets/zip-2.4.7.min.js"></script>
-		<script type="text/javascript" src="assets/md5.min.js"></script>
-		<script type="text/javascript" src="uauth/uauth.js"></script>
-		<script type="text/javascript" src="assets/jswindow.js"></script>
-		<script type="text/javascript" src="pwa.js"></script>
-		<script type="text/javascript" src="assets/charToCodeMap.js?v=6.5"></script>
-		<script type="text/javascript" src="assets/base.js?v=6.5"></script>
+		<script type="text/javascript" src="./assets/zip-2.4.7.min.js"></script>
+		<script type="text/javascript" src="./assets/md5.min.js"></script>
+		<script type="text/javascript" src="./uauth/uauth.js"></script>
+		<script type="text/javascript" src="./assets/jswindow.js"></script>
+		<script type="text/javascript" src="./pwa.js"></script>
+		<script type="text/javascript" src="./assets/charToCodeMap.js?v=6.5"></script>
+		<script type="text/javascript" src="./assets/base.js?v=6.5"></script>
 	</body>
 </html>
