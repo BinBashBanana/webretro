@@ -7,7 +7,7 @@ if (!window.fetch || !indexedDB) {
 }
 
 var fsBundleDirs, fsBundleFiles, loadStatus, romName, isPaused, wasmReady, bundleReady, biosReady, romMode, core, wIdb, romUploadCallback, latestVersion, mainCompleted, currentManager, romUploadsReady, realRomExt, currentTheme;
-if (standaloneOfflineCheck == true) {
+if (noCdn == true) {
 	var bundleCdn = "./"
 	var bundleCdnLatest = "./"
 	var biosCdn = "./RetroPieBIOS/BIOS/" // https://github.com/archtaurus/RetroPieBIOS goes here.
