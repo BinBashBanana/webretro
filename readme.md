@@ -4,7 +4,7 @@ to the "dynamic" branch of foxsouns's [webretro](https://github.com/BinBashBanan
 
 ### what is this?
 
-an effort to make webretro fully dynamic, and functional offline.. in my spare time. basically, it's some unofficial work on webretro-v6.6, because i am impatient. also, this is an excuse for me to dip my toes into & get better at javascript in general: i hardly ever touch this lang, so this is good practice.
+an effort to make webretro fully asset dynamic, and functional offline after getting those.. made in my spare time. basically, it's some unofficial work on webretro-v6.6, because i am impatient. also, this is an excuse for me to dip my toes into & get better at javascript in general: i hardly ever touch this lang, so this is good practice.
 
 ### what has been done?
 
@@ -16,26 +16,29 @@ an effort to make webretro fully dynamic, and functional offline.. in my spare t
 
 ### what's left TODO?
 
-- [ ] untether from jsdelivr
+- [ ] what works?
+  - [ ] assets
+    - [x] from a real url
+    - [x] from a `file://` url
+    - [ ] offline `file://` url (via serviceworkers&&indexedDB)
   - [ ] cores
     - [x] from a real url
-    - [ ] from `file://` urls
+    - [x] from a `file://` url (via jsdelivr)
+    - [ ] offline `file://` url (via serviceworkers&&indexedDB)
   - [ ] BIOS files
-    - [ ] from a real url
-    - [ ] from `file://` urls
-- [ ] front-end page to dynamically add/remove cores/BIOS files
-- [ ] service worker dl backend
-    - [ ] asset files (optional: could bundle into file as is)
-    - [ ] core files
-    - [ ] BIOS files
-- [ ] offline support
-  - [x] basic assets (menus)
-  - [ ] cores
-  - [ ] BIOS files
+    - [x] from a real url
+    - [x] from a `file://` url (via jsdelivr)
+    - [ ] offline `file://` url (via serviceworkers&&indexedDB)
+- [ ] front-end page to dynamically add/remove all asset files
+    - [ ] service worker dl backend
+        - [ ] assets (optional: see below)
+        - [ ] cores
+        - [ ] BIOS files
 
 ### ideas
 
-- [ ] core dl frontend could be the first opened up page: with a button to switch to the currently installed cores (if available)
+- core dl frontend could be the first opened up page: with a button to switch to the currently installed cores (if available).
+- assets do not HAVE to be dynamically added, per se. we could just throw all the js files into a webretro html and distribute that instead: leaving only cores and BIOS files to worry about.
 
 # original readme below here
 
