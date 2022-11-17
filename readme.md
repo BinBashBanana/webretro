@@ -1,4 +1,24 @@
-# webretro
+# welcome... 
+
+to the "dynamic" branch of foxsouns's [webretro](https://github.com/BinBashBanana/webretro) fork.
+
+## what is this?
+
+an effort to make webretro fully portable and dynamic!.. in my spare time. basically, it's some unofficial work on webretro-v6.6, because i am impatient.
+
+## what's left TODO?
+
+- [x] ~~untether from jsdelivr~~ 
+- [x] ~~determine if service workers.. work under `file://` urls~~ it does >:3
+- [ ] implement all current work as default in `index.html`
+- [ ] front-end to dynamically add/remove cores/bioses
+  - [ ] impliment service worker-based frontend
+      - [ ] impliment asset files
+      - [ ] impliment core files
+      - [ ] impliment bios files
+  - [ ] offline support
+
+# webretro original readme
 [RetroArch](https://github.com/libretro) ported to WebAssembly with [emscripten](https://emscripten.org/)!
 
 [**Official Instance**](https://binbashbanana.github.io/webretro/)
