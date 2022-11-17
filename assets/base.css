@@ -516,6 +516,11 @@ input[type="file"] {
 	cursor: help;
 }
 
+#assetdl {
+	font-weight: bold;
+	position: absolute;
+	left: 5px;
+}
 .greyer {
 	color: #404040 !important;
 }
