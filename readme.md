@@ -14,10 +14,10 @@ an effort to make webretro fully asset dynamic, and functional offline after get
 - [x] determine if service workers work under `file://` urls (they do >:3)
 - [x] implement all current work as default in `index.html`
 - [x] fix version checking weirdness (just store it as a string)
+- [x] version check unneeded string conversion removal
 
 ### what's left TODO?
 
-- [ ] version check unneeded string conversion removal (this is easy)
 - [ ] front-end page somewhere to dynamically add/remove all asset files
     - [ ] service worker dl backend
         - [ ] assets

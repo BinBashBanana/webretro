@@ -1,6 +1,7 @@
 var fsBundleDirs, fsBundleFiles, loadStatus, romName, isPaused, wasmReady, bundleReady, biosReady, romMode, core, wIdb, romUploadCallback, latestVersion, mainCompleted, currentManager, romUploadsReady, realRomExt, currentTheme;
 var bundleCdn = "./"
-var infoJsonUrl = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/assets/info.json";
+var infoJsonUrl = "./assets/info.json"
+//var infoJsonUrl = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/assets/info.json"; // use this instead after merging
 var standaloneDownloadUrl = "./utils/webretro-standalone.html"
 if (noBiosCdn == true) {
 	var biosCdn = "./RetroPieBIOS/BIOS/" // https://github.com/archtaurus/RetroPieBIOS goes here
@@ -533,9 +534,9 @@ function checkForUpdates() {
 			var updateObj = JSON.parse(text);
 			if (updateObj.webretro) {
 				latestVersion = updateObj.webretro;
-				if (updateObj.versions[webretroVersion.toString()]) versionIndicator.title = "New features in this version:\n\n- " + updateObj.versions[webretroVersion.toString()].changeList.join("\n- ");
-				if (latestVersion > webretroVersion && updateObj.versions[latestVersion.toString()]) {
-					updateNotice.textContent = "New webretro version available: v" + latestVersion.toString() + ". Features:\n\n- " + updateObj.versions[latestVersion.toString()].changeList.join("\n- ") + "\n\nThe site owner(s) can apply the update.";
+				if (updateObj.versions[webretroVersion]) versionIndicator.title = "New features in this version:\n\n- " + updateObj.versions[webretroVersion].changeList.join("\n- ");
+				if (latestVersion > webretroVersion && updateObj.versions[latestVersion]) {
+					updateNotice.textContent = "New webretro version available: v" + latestVersion + ". Features:\n\n- " + updateObj.versions[latestVersion].changeList.join("\n- ") + "\n\nThe site owner(s) can apply the update.";
 					updateNotice.style.display = "initial";
 				}
 			}
