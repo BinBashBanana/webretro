@@ -23,11 +23,11 @@ an effort to make webretro fully portable and dynamic!.. in my spare time. basic
   - [ ] BIOS files
     - [ ] from a real url
     - [ ] from `file://` urls
-- [ ] front-end to dynamically add/remove cores/BIOS files
-  - [ ] impliment service worker-based frontend
-      - [ ] asset files (optional: could bundle into file as is)
-      - [ ] core files
-      - [ ] BIOS files
+- [ ] front-end page to dynamically add/remove cores/BIOS files
+- [ ] service worker dl backend
+    - [ ] asset files (optional: could bundle into file as is)
+    - [ ] core files
+    - [ ] BIOS files
 - [ ] offline support
   - [x] basic assets (menus)
   - [ ] cores
