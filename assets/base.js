@@ -1178,6 +1178,11 @@ savesButton.onclick = function(e) {
 statesButton.onclick = function(e) {
 	e.preventDefault();
 	openManager("save");
+}
+
+assetsButton.onclick = function(e) {
+	e.preventDefault();
+	openManager("assets")
 };
 
 // ---------- START LOAD ----------
