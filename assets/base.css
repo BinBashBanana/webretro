@@ -516,6 +516,12 @@ input[type="file"] {
 	cursor: help;
 }
 
+#assetsButton {
+	font-weight: bold;
+	position: absolute;
+	left: 5px;
+	cursor: pointer;
+}
 .greyer {
 	color: #404040 !important;
 }

@@ -1,3 +1,38 @@
+# welcome... 
+
+to the "dynamic" branch of foxsouns's [webretro](https://github.com/BinBashBanana/webretro) fork.
+
+### what is this?
+
+an effort to make webretro fully asset dynamic, and functional offline after getting those.. made in my spare time. basically, it's some unofficial work on webretro-v6.6, because i am impatient. also, this is an excuse for me to dip my toes into & get better at javascript in general: i hardly ever touch this lang, so this is good practice.
+
+### what has been done?
+
+- [x] came up with a way to run this without a cdn
+- [x] fixed a few file location calls to be explicit, and prefer calling out `index.html` directly
+- [x] menus work offline
+- [x] determine if service workers work under `file://` urls (they do >:3)
+- [x] implement all current work as default in `index.html`
+- [x] fix version checking weirdness (just store it as a string)
+- [x] version check unneeded string conversion removal
+
+### what's left TODO?
+
+- [ ] dynamic loading of assets
+  - [ ] front-end
+  - [ ] service worker dl backend
+      - [ ] assets
+      - [ ] cores
+      - [ ] BIOS files
+- [ ] make all of it work offline
+- [ ] `index.html`: will find asset files and download them; replacing the standalone webretro by becoming "standalone" itself
+
+### ideas
+
+- asset dl could also just not have a (direct) front-end at all! it could function by loading all needed assets _as they are needed_, and then, probably on the main page, have an indexedDB "file browser" to remove them.
+
+# original readme below here
+
 # webretro
 [RetroArch](https://github.com/libretro) ported to WebAssembly with [emscripten](https://emscripten.org/)!
 
