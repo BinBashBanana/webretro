@@ -20,7 +20,7 @@ an effort to make webretro fully asset dynamic, and functional offline after get
   - [x] assets
     - [x] from a real url
     - [x] from a `file://` url
-    - [x] offline `file://` url (via embeded `.html` file)
+    - [ ] offline `file://` url (via embeded `.html` file) (doable, but not yet done)
   - [ ] cores
     - [x] from a real url
     - [x] from a `file://` url (via jsdelivr)
@@ -29,14 +29,16 @@ an effort to make webretro fully asset dynamic, and functional offline after get
     - [x] from a real url
     - [x] from a `file://` url (via jsdelivr)
     - [ ] offline `file://` url (via serviceworkers&&indexedDB)
-- [ ] front-end page to dynamically add/remove all asset files
+- [ ] front-end page somewhere to dynamically add/remove all asset files
     - [ ] service worker dl backend
+        - [ ] assets
         - [ ] cores
         - [ ] BIOS files
+- [ ] make all of it work offline
 
 ### ideas
 
-- core dl frontend could be the first opened up page: with a button to switch to the currently installed cores (if available).
+- asset dl could also just not have a (direct) front-end at all! it could function by loading all needed assets _as they are needed_, and then, probably on the main page, have an indexedDB "file browser" to remove them.
 
 # original readme below here
 
