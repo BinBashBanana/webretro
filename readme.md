@@ -2,23 +2,44 @@
 
 to the "dynamic" branch of foxsouns's [webretro](https://github.com/BinBashBanana/webretro) fork.
 
-## what is this?
+### what is this?
 
 an effort to make webretro fully portable and dynamic!.. in my spare time. basically, it's some unofficial work on webretro-v6.6, because i am impatient. also, this is an excuse for me to dip my toes into & get better at javascript in general: i hardly ever touch this lang, so this is good practice.
 
-## what's left TODO?
+### what has been done?
 
-- [x] ~~untether from jsdelivr~~ 
-- [x] ~~determine if service workers.. work under `file://` urls~~ it does >:3
-- [ ] implement all current work as default in `index.html`
-- [ ] front-end to dynamically add/remove cores/bioses
+- [x] came up with a way to run this without a cdn
+- [x] fixed a few file location calls to be explicit, and prefer calling out `index.html` directly
+- [x] menus work offline
+- [x] determine if service workers work under `file://` urls (they do >:3)
+- [x] implement all current work as default in `index.html`
+
+### what's left TODO?
+
+- [ ] untether from jsdelivr
+  - [ ] cores
+    - [x] from a real url
+    - [ ] from `file://` urls
+  - [ ] BIOS files
+    - [ ] from a real url
+    - [ ] from `file://` urls
+- [ ] front-end to dynamically add/remove cores/BIOS files
   - [ ] impliment service worker-based frontend
-      - [ ] impliment asset files
-      - [ ] impliment core files
-      - [ ] impliment bios files
-  - [ ] offline support
+      - [ ] asset files (optional: could bundle into file as is)
+      - [ ] core files
+      - [ ] BIOS files
+- [ ] offline support
+  - [x] basic assets (menus)
+  - [ ] cores
+  - [ ] BIOS files
 
-# webretro original readme
+### ideas
+
+- [ ] core dl frontend could be the first opened up page: with a button to switch to the currently installed cores (if available)
+
+# original readme below here
+
+# webretro
 [RetroArch](https://github.com/libretro) ported to WebAssembly with [emscripten](https://emscripten.org/)!
 
 [**Official Instance**](https://binbashbanana.github.io/webretro/)
