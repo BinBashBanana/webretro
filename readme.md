@@ -18,13 +18,14 @@ an effort to make webretro fully asset dynamic, and functional offline after get
 
 ### what's left TODO?
 
-- [ ] front-end page somewhere to dynamically add/remove all asset files
-    - [ ] service worker dl backend
-        - [ ] assets
-        - [ ] cores
-        - [ ] BIOS files
+- [ ] dynamic loading of assets
+  - [ ] front-end
+  - [ ] service worker dl backend
+      - [ ] assets
+      - [ ] cores
+      - [ ] BIOS files
 - [ ] make all of it work offline
-- [ ] `index.html`: will find asset files and download them; replacing the standalone webretro
+- [ ] `index.html`: will find asset files and download them; replacing the standalone webretro by becoming "standalone" itself
 
 ### ideas
 
