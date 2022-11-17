@@ -4,7 +4,7 @@ to the "dynamic" branch of foxsouns's [webretro](https://github.com/BinBashBanan
 
 ## what is this?
 
-an effort to make webretro fully portable and dynamic!.. in my spare time. basically, it's some unofficial work on webretro-v6.6, because i am impatient.
+an effort to make webretro fully portable and dynamic!.. in my spare time. basically, it's some unofficial work on webretro-v6.6, because i am impatient. also, this is an excuse for me to dip my toes into & get better at javascript in general: i hardly ever touch this lang, so this is good practice.
 
 ## what's left TODO?
 
