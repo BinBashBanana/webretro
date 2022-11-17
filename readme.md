@@ -13,28 +13,18 @@ an effort to make webretro fully asset dynamic, and functional offline after get
 - [x] menus work offline
 - [x] determine if service workers work under `file://` urls (they do >:3)
 - [x] implement all current work as default in `index.html`
+- [x] fix version checking weirdness (just store it as a string)
 
 ### what's left TODO?
 
-- [ ] what works?
-  - [x] assets
-    - [x] from a real url
-    - [x] from a `file://` url
-    - [ ] offline `file://` url (via embeded `.html` file) (doable, but not yet done)
-  - [ ] cores
-    - [x] from a real url
-    - [x] from a `file://` url (via jsdelivr)
-    - [ ] offline `file://` url (via serviceworkers&&indexedDB)
-  - [ ] BIOS files
-    - [x] from a real url
-    - [x] from a `file://` url (via jsdelivr)
-    - [ ] offline `file://` url (via serviceworkers&&indexedDB)
+- [ ] version check unneeded string conversion removal (this is easy)
 - [ ] front-end page somewhere to dynamically add/remove all asset files
     - [ ] service worker dl backend
         - [ ] assets
         - [ ] cores
         - [ ] BIOS files
 - [ ] make all of it work offline
+- [ ] `index.html`: will find asset files and download them; replacing the standalone webretro
 
 ### ideas
 
