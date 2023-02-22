@@ -1276,11 +1276,11 @@ const Nenge = new class NengeCores {
                 if (I.obj(contents)) {
                     F.I.toArr(contents, entry => F.Libjs[entry[0]] = entry[1] && F.URL(entry[1], F.getMime(entry[0])));
                 } else {
-                    F.Libjs[jsname] = F.URL(contents, F.getMime(file));
+                    F.Libjs[file] = F.URL(contents, F.getMime(file));
                 }
             }
             contents = null;
-            return F.Libjs[jsname]
+            return F.Libjs[file]
         }
         getname(str) {
             return (str || '').split('/').pop().split('?')[0].split('#')[0];

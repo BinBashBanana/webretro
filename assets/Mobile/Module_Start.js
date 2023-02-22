@@ -407,14 +407,20 @@
     M.print = (text)=>M.CF('print',text);
     M.printErr = (text)=>M.CF('printErr',text);
     M.onRuntimeInitialized = ()=>M.CF('RuntimeInitialized');
-    var getText = (name,version,type)=>T.FetchItem({
-        url:ROOT['root']+name+'?'+T.time,
-        key:F.LibKey+F.getname(name),
-        store:M.isLocal?undefined:T.LibStore,
-        process:e=>T.$('#emu-status').innerHTML = e,
-        decode:true,
-        version,type
-    }),
+    var getText = async (name,version,type)=>{
+        let text = await T.FetchItem({
+            url:ROOT['root']+name+'?'+T.time,
+            key:F.LibKey+F.getname(name),
+            store:M.isLocal?undefined:T.LibStore,
+            process:e=>T.$('#emu-status').innerHTML = e,
+            decode:true,
+            version,type
+        });
+        if(I.u8buf(text))text =  I.decode(text);
+        if(I.blob(text)) text =  await text.text();
+        if(I.str(text)&&type == 'json') return JSON.parse(text);
+        return text;
+    },
     getCores = (name,type)=>T.FetchItem({
         url:ROOT['cores']+name,
         store:DISK.DB.system,
