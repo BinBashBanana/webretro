@@ -1,0 +1,306 @@
+{
+    "opera": {
+        "core": "Opera",
+        "name": "3DO",
+        "extensions": ["iso", "img", "ciso", "cso", "chd", "m3u", "cue", "ccd"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "bios": {
+            "path": "",
+            "files": ["panafz10-norsa.bin", "panafz10ja-anvil-kanji.bin"]
+        },
+        "sys": "3do"
+    },
+    "stella2014": {
+        "core": "Stella 2014",
+        "name": "Atari 2600",
+        "extensions": ["a26"],
+        "saves": false,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "lowpass": "stella2014_low_pass_filter = \"enabled\"\n"
+        },
+        "sys": "a2600"
+    },
+    "a5200": {
+        "core": "a5200",
+        "name": "Atari 5200",
+        "extensions": ["a52"],
+        "saves": false,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "lowpass": "a5200_low_pass_filter = \"enabled\"\n"
+        },
+        "bios": {
+            "path": "",
+            "files": ["5200.rom"]
+        },
+        "sys": "a5200"
+    },
+    "prosystem": {
+        "core": "ProSystem",
+        "name": "Atari 7800",
+        "extensions": ["a78"],
+        "saves": false,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "lowpass": "prosystem_low_pass_filter = \"enabled\"\n"
+        },
+        "sys": "a7800"
+    },
+    "virtualjaguar": {
+        "core": "Virtual Jaguar",
+        "name": "Atari Jaguar",
+        "extensions": ["j64", "jag", "abs", "cof", "prg"],
+        "saves": true,
+        "multisaves": false,
+        "state": false,
+        "options": {
+            "fastblitter": "virtualjaguar_usefastblitter = \"enabled\"\n"
+        },
+        "sys": "jaguar"
+    },
+    "handy": {
+        "core": "Handy",
+        "name": "Atari Lynx",
+        "extensions": ["lnx"],
+        "saves": false,
+        "multisaves": false,
+        "state": true,
+        "bios": {
+            "path": "",
+            "files": ["lynxboot.img"]
+        },
+        "sys": "lynx"
+    },
+    "gearcoleco": {
+        "core": "Gearcoleco",
+        "name": "ColecoVision",
+        "extensions": ["col", "cv"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "bios": {
+            "path": "",
+            "files": ["colecovision.rom"]
+        }
+    },
+    "freechaf": {
+        "core": "FreeChaF",
+        "name": "Fairchild Channel F",
+        "extensions": ["chf"],
+        "saves": false,
+        "multisaves": false,
+        "state": true,
+        "bios": {
+            "path": "",
+            "files": ["sl31253.bin", "sl31254.bin", "sl90025.bin"]
+        }
+    },
+    "mgba": {
+        "core": "mGBA",
+        "name": "GB/GBC/GBA",
+        "extensions": ["gb", "gbc", "gba"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "lowpass": "mgba_audio_low_pass_filter = \"enabled\"\n"
+        },
+        "sys": "gba"
+    },
+    "o2em": {
+        "core": "O2EM",
+        "name": "Odyssey 2",
+        "extensions": [],
+        "saves": false,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "lowpass": "o2em_low_pass_filter = \"enabled\"\n"
+        },
+        "bios": {
+            "path": "",
+            "files": ["c52.bin", "g7400.bin", "jopac.bin", "o2rom.bin"]
+        }
+    },
+    "freeintv": {
+        "core": "FreeIntv",
+        "name": "Intellivision",
+        "extensions": ["int"],
+        "saves": false,
+        "multisaves": false,
+        "state": true,
+        "bios": {
+            "path": "",
+            "files": ["exec.bin", "grom.bin"]
+        }
+    },
+    "neocd": {
+        "core": "NeoCD",
+        "name": "Neo-Geo CD",
+        "extensions": ["iso", "img", "ciso", "cso", "chd", "m3u", "cue", "ccd"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "bios": {
+            "path": "neocd/",
+            "files": ["neocd_z.rom"]
+        },
+        "sys": "ngc"
+    },
+    "mednafen_ngp": {
+        "core": "Beetle NeoPop",
+        "name": "Neo-Geo Pocket",
+        "extensions": ["ngp", "ngc"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "sys": "ngp"
+    },
+    "nestopia": {
+        "core": "Nestopia UE",
+        "name": "NES",
+        "extensions": ["nes", "fds", "unf", "unif"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "sys": "nes"
+    },
+    "mupen64plus_next": {
+        "core": "Mupen64Plus-Next",
+        "name": "Nintendo 64",
+        "extensions": ["n64", "v64", "z64", "u1", "ndd"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "highres": "mupen64plus-169screensize = \"1280x720\"\nmupen64plus-43screensize = \"960x720\"\n",
+            "widescreen": "mupen64plus-aspect = \"16:9 adjusted\"\n"
+        },
+        "sys": "n64"
+    },
+    "parallel_n64": {
+        "core": "ParaLLEl N64",
+        "name": "Nintendo 64",
+        "extensions": ["n64", "v64", "z64", "u1", "ndd"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "highres": "parallel-n64-screensize = \"960x720\"\n",
+            "renderer2": "parallel-n64-gfxplugin = \"gln64\"\n"
+        },
+        "sys": "n64"
+    },
+    "melonds": {
+        "core": "melonDS",
+        "name": "Nintendo DS",
+        "extensions": ["nds", "srl"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "leftright": "melonds_screen_layout = \"Left/Right\"\n"
+        },
+        "sys": "nds"
+    },
+    "mednafen_psx_hw": {
+        "core": "Beetle PSX HW",
+        "name": "PlayStation",
+        "extensions": ["iso", "img", "ciso", "cso", "chd", "m3u", "cue", "ccd"],
+        "saves": true,
+        "multisaves": true,
+        "state": true,
+        "options": {
+            "softwarerenderer": "beetle_psx_hw_renderer = \"software\"\n",
+            "highres": "beetle_psx_hw_internal_resolution = \"2x\"\n",
+            "ditherscaling": "beetle_psx_hw_dither_mode = \"internal resolution\"\n",
+            "widescreen": "beetle_psx_hw_widescreen_hack = \"enabled\"\n",
+            "antijitter": "beetle_psx_hw_pgxp_mode = \"memory only\"\n"
+        },
+        "bios": {
+            "path": "",
+            "files": ["scph5500.bin", "scph5501.bin", "scph5502.bin"]
+        },
+        "sys": "psx"
+    },
+    "yabause": {
+        "core": "Yabause",
+        "name": "Sega Saturn",
+        "extensions": ["iso", "img", "ciso", "cso", "chd", "m3u", "cue", "ccd"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "frameskip": "yabause_frameskip = \"enabled\"\n"
+        },
+        "bios": {
+            "path": "",
+            "files": ["saturn_bios.bin"]
+        },
+        "sys": "segasaturn"
+    },
+    "genesis_plus_gx": {
+        "core": "Genesis Plus GX",
+        "name": "Sega Systems",
+        "extensions": ["mdx", "md", "smd", "gen", "sms", "gg", "sg", "68k", "sgd"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "sys": "segamd"
+    },
+    "snes9x": {
+        "core": "Snes9x",
+        "name": "SNES",
+        "extensions": ["smc", "sfc", "swc", "fig", "bs"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "mouse": "input_libretro_device_p1 = \"2\"\n"
+        },
+        "sys": "snes"
+    },
+    "vecx": {
+        "core": "Vecx",
+        "name": "Vectrex",
+        "extensions": ["vec"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "softwarerenderer": "vecx_use_hw = \"Software\"\n"
+        }
+    },
+    "mednafen_vb": {
+        "core": "Beetle VB",
+        "name": "Virtual Boy",
+        "extensions": ["vb", "vboy"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "anaglyph": "vb_anaglyph_preset = \"red & blue\"\n"
+        },
+        "sys": "vb"
+    },
+    "mednafen_wswan": {
+        "core": "Beetle WonderSwan",
+        "name": "WonderSwan",
+        "extensions": ["ws", "wsc", "pc2"],
+        "saves": true,
+        "multisaves": false,
+        "state": true,
+        "options": {
+            "75hz": "wswan_60hz_mode = \"disabled\"\n",
+            "portrait": "wswan_rotate_display = \"portrait\"\n",
+            "lowpass": "wswan_sound_low_pass = \"enabled\"\n"
+        },
+        "sys": "wanderswan"
+    }
+}

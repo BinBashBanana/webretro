@@ -1,0 +1,686 @@
+@mixin poscenter {
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+img{
+    max-width: 100%;
+}
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.emu-container{
+    @include poscenter();
+    background-color: #000;
+    --aspect-hw:0.5;
+    --aspect-wh:1;
+    --width:100%;
+    --height:100%;
+    user-select: none;
+    touch-action: none;
+    overflow: hidden;
+    &:not([class~="emu-zh-hans"]){
+        #emu-logo{
+            display: none;
+        }
+    }
+}
+.emu-welcome{
+    padding: 5px;
+    color: #fff;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    @include poscenter();
+}
+#emu-logo{
+    width: 150px;
+    margin: 0px calc(50% - 75px);
+}
+#emu-welcome-result{
+    
+    font-size: .625rem;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+.emu-core-ul{
+    padding: 15px;
+    margin: 5px 15px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.emu-core-item{
+    margin: 15px 5px;
+    width: 120px;
+    text-align: center;
+    border: 1px dashed #ff7916;
+    border-radius: 5px;
+    padding: 5px 0px;
+}
+.emu-core-img{
+    vertical-align: middle;
+    width: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    pointer-events: none;
+}
+.emu-core-sys{
+    padding: 0px;
+    margin: 0px;
+    pointer-events: none;
+}
+.emu-core-name{
+    padding: 0px;
+    margin: 0px;
+    font-size: .625rem;
+    pointer-events: none;
+}
+.emu-game-start{
+    display: block;
+    margin: 0px auto;
+    background-image: linear-gradient(0deg, #0547ff, #47afe1);
+    color: #fff;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 2rem;
+}
+.emu-screen{
+    position: absolute;
+    text-align: center;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+    canvas{
+        max-width: 100% !important;
+        max-height: 100% !important;
+        width: 100% !important;
+        user-select: none;
+        touch-action: none;
+        margin: auto;
+        @media screen and (orientation: portrait) and (max-width: 666px) {
+            height:min(var(--height),calc(var(--width) * var(--aspect-hw))) !important;
+        }        
+        @media screen and (orientation: landscape) and (min-width: 667px) {
+            height:var(--height) !important;
+        }
+    }
+}
+.emu-controls{
+    position: absolute;
+    @media screen and (orientation: portrait) and (max-width: 666px) {
+        bottom:calc((var(--height) - 300px - min(var(--height),calc(var(--width) * var(--aspect-hw)))) /2  );
+        width: 100%;
+        height: 300px;
+    }        
+    @media screen and (orientation: landscape) and (min-width: 667px) {
+        @include poscenter();
+        .emu-dpad,.emu-xyab,.emu-joystick{
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        button{
+            background-color: #0000003b;
+        }
+    }
+
+}
+.emu-dpad{        
+    display: flex;
+    width: 180px;
+    height: 180px;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 5px;
+    top:60px;
+}
+.emu-dp-btn{           
+    position: relative; 
+    background: transparent;
+    outline: none;
+    border: 1px solid #ffffffa8;
+    border-radius: 5px;
+    padding: 0px;
+    overflow: hidden;
+    &[data-key]::before{
+        content: "";
+        @include poscenter();
+        background-color: #ffffffa8;
+        clip-path: path('M 5 0 \ L0 10 \L 10 10 Z');
+        width: 10px;
+        height: 10px;
+        position: absolute;
+    }
+    &.active::before{
+        background-color: #ffd001;
+    }
+    &:not([data-key*=',']){
+        width:calc(100% / 3);
+        height:calc(100% / 3);
+    }
+    &[data-key*=',']{
+        width:calc(100% / 3 - 20%);
+        height:calc(100% / 3 - 20%);
+        margin:10%;
+        border-color: transparent;
+    }
+    &[data-key='left,up']{
+        order: 1;
+        &::before{
+            transform: rotate(-45deg);
+        }
+    }
+    &[data-key='up']{
+        order: 2;
+    }
+    &[data-key='right,up']{
+        order: 3;
+        &::before{
+            transform: rotate(45deg);
+        }
+    }
+    &[data-key=left]{
+        order: 4;
+        &::before{
+            transform: rotate(-90deg);
+        }
+    }
+    &:not([data-key]){
+        order: 5;
+        border-color: transparent;
+    }
+    &[data-key=right]{
+        order: 6;
+        &::before{
+            transform: rotate(90deg);
+        }
+    }
+    &[data-key='left,down']{
+        order: 7;
+        &::before{
+            transform: rotate(-135deg);
+        }
+    }
+    
+    &[data-key=down]{
+        order: 8;
+        &::before{
+            transform: rotate(-180deg);
+        }
+    }
+    
+    &[data-key='right,down']{
+        order: 9;
+        &::before{
+            transform: rotate(135deg);
+        }
+    }
+}
+.emu-xyab{
+    display: flex;
+    width: 150px;
+    height: 150px;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: absolute;
+    right: 5px;
+    top:60px;
+}
+.emu-ab-btn{           
+    position: relative; 
+    background: transparent;
+    outline: none;
+    border: 1px solid #ffffffa8;
+    border-radius: 50%;
+    padding: 0px;
+    overflow: hidden;
+    width:25%;
+    height:25%;
+    margin-top: calc(25% / 6);
+    margin-bottom: calc(25% / 6);
+    color: #fff;
+    font-size: 24px;
+    &.active{
+        color: #ffd001;
+    }
+    &:first-child[data-key=a]{
+        order: 1;
+        width:calc(100% / 3);
+        height:calc(100% / 3);
+        margin-top: calc(100% / 9);
+        margin-left: calc(100% / 1.6);
+        margin-right: unset;
+        + .emu-ab-btn{
+            order: 2;
+            width:calc(100% / 3);
+            height:calc(100% / 3);
+            margin-left: calc(100% / 5);
+        }
+    }
+    &[data-key=y]{
+        order: 1;
+        margin-left: calc(100% / 3 + 25% / 6);
+        margin-right: calc(100% / 3 + 25% / 6);
+    }
+    &[data-key=x]{
+        order: 2;
+        margin-left: calc(25% / 6);
+        margin-right: calc(100% / 3 + 25% / 6);
+        &:not([hidden]){
+            ~ .emu-ab-btn[data-key=a]{
+                order: 4;
+                margin-top: calc(25% / 6);
+                margin-left: calc(100% / 3 + 25% / 6);
+                margin-right: calc(100% / 3 + 25% / 6);
+            }
+            ~ .emu-ab-btn[data-key=b]{
+                order: 3;
+                margin-left: calc(25% / 6);
+                margin-right: calc(25% / 6);
+            }
+        }
+    }
+}
+.emu-lr-btn{
+    background: transparent;
+    outline: none;
+    border: 1px solid #ffffffa8;
+    border-radius: 5px;
+    padding: 0px;
+    overflow: hidden;
+    width: 50px;
+    color: #fff;
+    font-size: 1rem;
+    padding: 2px;
+    text-align: center;
+    top: 5px;
+    position: absolute;
+    &.active{
+        color: #ffd001;
+    }
+    &[data-key=l]{
+        left: 5px;
+    }
+    &[data-key=r]{
+        right: 5px;
+    }
+
+}
+.emu-ss-btn{
+    background: transparent;
+    outline: none;
+    border: 1px solid #ffffffa8;
+    border-radius: 5px;
+    padding: 0px;
+    overflow: hidden;
+    width: 70px;
+    color: #fff;
+    font-size: 0.625rem;
+    padding: 2px 5px;
+    text-align: center;
+    top: 5px;
+    position: absolute;
+    top:260px;
+    &.active{
+        color: #ffd001;
+    }
+    &[data-key=select],&[data-key=l2]{
+        right: calc(50% + 10px);
+    }
+    &[data-key=start]{
+        left:calc(50% + 10px);
+    }
+    @media screen and (orientation: landscape) and (min-width: 667px) {
+            top: unset;
+            bottom: 20px;
+            &[data-key=select],&[data-key=l2]{
+                right:unset;
+                left: 40px;
+            }
+            &[data-key=start]{
+                left:unset;
+                right: 40px;
+            }
+    }
+
+}
+.emu-sys-n64{
+    .emu-dpad{
+        width: 90px;
+        height: 90px;
+        top: calc(50% - 115px);
+        bottom: unset;
+        @media screen and (orientation: portrait) and (max-width: 666px) {
+            left: 110px;
+        }
+    }
+    .emu-joystick{
+        top: calc(50% - 10px);
+        left: 15px;
+        bottom: unset;
+    }
+    .emu-xyab{
+        button{
+            font-size: .625rem;
+        }
+    }
+
+}
+.emu-joystick{
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 5px;
+    top: 60px;
+}
+.emu-settings{
+    &.active{
+        @include poscenter();
+        position: absolute;
+        z-index: 10;
+        pointer-events: auto;
+        background-color:#000000d1;
+        .emu-settings-icon{
+            transform: rotate(45deg);
+            &:before {
+                top: 0;
+                transform: rotate(-90deg);
+            }
+
+            &:after {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    }
+    &:not([class~="active"]){
+        .emu-settings-ctrls{
+            display: none;
+        }
+    }
+}
+.emu-settings-btn{
+    position: absolute;
+    z-index: 9999;
+    left: calc(var(--width) * 0.5 - 14px);
+    top: 5px;border:none;
+    border-radius: 5px;
+    padding: 5px 5px 7px;
+    pointer-events: auto;
+    background-color: #abaaaa33;
+    outline: none;
+}
+.emu-settings-icon {
+    color: #1e293b;
+    border-color: #0000001a;
+    height: 2px;
+    width: 1.25em;
+    background: #ffffff54;
+    border-radius: 10px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    transition: all .3s;
+    &:after,
+    &:before {
+        content: "";
+        display: block;
+        height: inherit;
+        width: inherit;
+        border-radius: inherit;
+        background: inherit;
+        position: absolute;
+        left: 0;
+        transition: inherit;
+    }
+
+    &:before {
+        top: -.45em;
+    }
+
+    &:after {
+        bottom: -.45em;
+    }
+}
+.emu-settings-ctrls{
+    @include poscenter();
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: flex-end;
+    overflow: hidden;
+    overflow-y: auto;
+    word-break: break-word;
+}
+.emu-settings-menu-item{
+        
+    width: 40%;
+    margin: 5px 5%;
+    background-color: #ffffffb3;
+    border: 1px solid #ff7d01;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.emu-settings-menu-autoSaves.active{
+    background-color: #0547ff;
+    color: #fff;
+}
+.emu-resume{
+    @include poscenter();
+    position:absolute;
+    background-color: #00000096;
+    z-index: 9;
+    &:not([hidden]){
+        &~.emu-settings,&~.emu-controls,&~.emu-dialog{
+            display: none !important;
+        }
+    }
+}
+.emu-resume-txt{
+    @include poscenter();
+    position:absolute;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    color: #fff;
+
+}
+.emu-wel-game,.emu-wel-bios,.emu-wel-roms{
+    margin: 0px;
+    padding: 10px;
+}
+.emu-wel-menu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+}
+
+.emu-wel-li{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+.emu-wel-p{
+    margin: 0px;
+    font-size: 1rem;
+    background: #48443e;
+    padding: 2px 5px;
+}
+.emu-wel-btn{
+    display: block;
+    background-image: linear-gradient(0deg, #012a36, #0089ff);
+    border: 1px dashed #9bff00;
+    border-radius: 5px;
+    padding: 3px 6px;
+    color: #fff;
+
+}
+.emu-wel-menu-btn{
+    margin: 10px;
+}
+.emu-dialog{
+    @include poscenter();
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateX(200%);
+    transition: all .2s;
+    background: #000000d1;
+    z-index: 12;
+    color: #fff;
+    &.active{
+        transform: translateX(0%);
+    }
+}
+.emu-dialog-item{
+    @include poscenter();
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.emu-dialog-container{
+    position: absolute;
+    height: calc(100% - 120px);
+    padding: 10px 20px 10px 10px;
+    top:0px;
+    bottom: unset;
+    overflow: hidden;
+    overflow-y: auto;
+    font-size: .625rem;
+    text-align: center;
+}
+.emu-dialog-footer{
+    position: absolute;
+    bottom: 50px;
+    height: 60px;
+    text-align: center;
+    left: 0px;
+    top: unset;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.emu-dialog-close{
+    display: block;
+    background-image: linear-gradient(0deg, #012a36, #0089ff);
+    border: 1px dashed #9bff00;
+    border-radius: 5px;
+    padding: 3px 6px;
+    color: #fff;
+}
+.emu-dialog-cache{
+    h3,
+    h6 {
+        margin: 0px 0px 5px;
+        display: inline-block;
+        background-image: linear-gradient(180deg, #007cfb, #024bf7);
+        padding: 3px;
+        border-radius: 5px;
+        color: #fff;
+    }
+
+    p {
+        color: #000;
+        margin: 0px 0px 0px;
+        padding: 0px;
+
+        +p {
+            margin-top: 5px;
+        }
+    }
+
+    ul {
+        button {
+            color: #000;
+            padding: 1px 3px;
+            font-size: 0.625rem;
+            border-radius: 5px;
+            background: #d1b840;
+            border: 1px dashed #ff7c08;
+
+            +button {
+                margin-left: 10px;
+            }
+        }
+
+        >li {
+            text-align: left;
+
+            +li {
+                margin-top: 5px;
+            }
+        }
+    }
+
+    .fspath,
+    h6+ul {
+        background: #7a7a7a;
+        padding: 5px;
+
+        li {
+            color: #000;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            flex-direction: row;
+
+            &:hover {
+                background-color: #fff;
+            }
+
+            +li {
+                border-top: 1px dashed #ccc;
+                padding-top: 5px;
+                margin-top: 5px;
+            }
+        }
+
+        +h3 {
+            margin-top: 5px;
+        }
+    }
+
+    .fspath {
+        p {
+            +p {
+                background: #d9b073;
+                padding: 0px 2px;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    h6 {
+        color: #04ff00;
+    }
+}
+.ajaxWindow{
+    position: fixed;
+    @include poscenter();
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #0000006b;
+}
