@@ -115,6 +115,7 @@ body{
 }
 .emu-controls{
     position: absolute;
+    z-index: 2;
     @media screen and (orientation: portrait) and (max-width: 666px) {
         bottom:calc((var(--height) - 300px - min(var(--height),calc(var(--width) * var(--aspect-hw)))) /2  );
         width: 100%;
@@ -406,13 +407,17 @@ body{
     }
     &:not([class~="active"]){
         .emu-settings-ctrls{
-            display: none;
+            right: -100vw;
+            transform: translateX(100%);
+        }
+        .emu-settings-popup{
+            transform: translateX(300%);
         }
     }
 }
 .emu-settings-btn{
     position: absolute;
-    z-index: 9999;
+    z-index: 11;
     left: calc(var(--width) * 0.5 - 14px);
     top: 5px;border:none;
     border-radius: 5px;
@@ -462,10 +467,11 @@ body{
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    align-content: flex-end;
+    align-content: center;
     overflow: hidden;
     overflow-y: auto;
     word-break: break-word;
+    transition: transform .3s;
 }
 .emu-settings-menu-item{
         
@@ -479,6 +485,70 @@ body{
 .emu-settings-menu-autoSaves.active{
     background-color: #0547ff;
     color: #fff;
+}
+.emu-settings-popup{
+    position: absolute;
+    right: 10px;
+    bottom: 30px;
+    max-height: 80vh;
+    z-index: 999;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.emu-spopup-container{
+    position: relative;
+    transition: all .3s;
+    border: 1px dashed #929292;
+    border-radius: 5px;
+    background-color: #202020;
+}
+.emu-spopup-item{
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: flex-start;
+    align-items: stretch;
+    display: none;
+    &.active{
+        display: flex;
+    }
+    &.position{
+        display: flex;
+        position: absolute;
+        transform: translateX(600%);
+    }
+}
+.emu-spopup-item-title{
+    margin: 0px;
+    padding: 6px;
+    text-align: center;
+    border-bottom: 1px dashed #929292;
+    color: #fff;
+    background-color: #2e2e2e;
+}
+.emu-spopup-btn{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #fff;
+    padding: 5px;
+    margin: 5px;
+    min-width:130px;
+    border-bottom: 1px dashed #929292;
+    &:last-child{
+        border-bottom-color: transparent;
+    }
+}
+.emu-spopup-span-key{
+    font-size: 1rem;
+}
+.emu-spopup-span-value{
+    font-size: .625rem;
 }
 .emu-resume{
     @include poscenter();
@@ -559,15 +629,20 @@ body{
     height: 100%;
 }
 .emu-dialog-container{
+    @include poscenter();
     position: absolute;
     height: calc(100% - 120px);
-    padding: 10px 20px 10px 10px;
+    padding: 10px 30px 10px 5px;
     top:0px;
     bottom: unset;
     overflow: hidden;
     overflow-y: auto;
     font-size: .625rem;
     text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+    background-color: #4a4845;
+    
 }
 .emu-dialog-footer{
     position: absolute;
@@ -581,15 +656,16 @@ body{
     justify-content: center;
     align-items: center;
 }
-.emu-dialog-close{
+.emu-dialog-btn{
     display: block;
     background-image: linear-gradient(0deg, #012a36, #0089ff);
     border: 1px dashed #9bff00;
     border-radius: 5px;
     padding: 3px 6px;
+    margin: 2px 5px;
     color: #fff;
 }
-.emu-dialog-cache{
+.emu-dialog-item-cache{
     h3,
     h6 {
         margin: 0px 0px 5px;
@@ -653,7 +729,7 @@ body{
             +li {
                 border-top: 1px dashed #ccc;
                 padding-top: 5px;
-                margin-top: 5px;
+                margin: 10px;
             }
         }
 
@@ -676,6 +752,21 @@ body{
         color: #04ff00;
     }
 }
+.emu-dialog-container-cheat{
+    textarea{
+        width: 100%;
+        height: 70%;
+    }
+    p{
+        text-align: center;
+    }
+    .emu-dialog-btn{
+        
+    margin: auto;
+    }
+
+}
+
 .ajaxWindow{
     position: fixed;
     @include poscenter();

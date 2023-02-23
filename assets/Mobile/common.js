@@ -543,10 +543,10 @@ const Nenge = new class NengeCores {
     async addScript(js, ARG) {
         return await T.addJS(await T.getScript(js, ARG));
     }
-    async loadLibjs(name, process) {
+    async loadLibjs(name, process,version) {
         let T = this,
             F = T.F;
-        return await T.addJS(await F.getLibjs(name, process), null, F.getExt(name) == 'css');
+        return await T.addJS(await F.getLibjs(name, process,version), null, F.getExt(name) == 'css');
     }
     unFile(u8, process, ARG) {
         return this.F.unFile(u8, this.I.assign({
@@ -612,7 +612,7 @@ const Nenge = new class NengeCores {
     }
     $ct(e, txt,c) {
         let T=this,I=T.I,elm = T.$ce(e);
-        elm.innerHTML = I.str(txt)?txt:txt();
+        if(txt)elm.innerHTML = I.str(txt)?txt:txt();
         if(c)I.toArr(T.F.getevent(c),s=>elm.classList.add(s));
         return elm;
     }
@@ -875,7 +875,8 @@ const Nenge = new class NengeCores {
                 27: [Ro, arro],
                 28: [Ro, arr('"".padStart(o)')],
             }).forEach(entry => func += SetObjArr(entry[0], entry[1][0], 1) + SetObjArr(entry[0], entry[1][1]));
-            (new O[19]('I', I.N(1) + '.defineProperties(I,{' + func + '})'))(I);
+            var newfunc = new O[19]('I', I.N(1) + '.defineProperties(I,{' + func + '})');
+            newfunc(I);func=null;newfunc=null;
         }
         N(num) {
             return !isNaN(num) ? this.O[num].name : this.X(num);
@@ -1251,7 +1252,7 @@ const Nenge = new class NengeCores {
             if (I.blob(u8)) u8 = I.U8(await u8.arrayBuffer());
             return u8;
         }
-        async getLibjs(jsfile, process) {
+        async getLibjs(jsfile, process,version) {
             let F = this,
                 T = F.T,
                 I = F.I,
@@ -1259,7 +1260,8 @@ const Nenge = new class NengeCores {
                 file = jsname.replace(/\.zip$/, '.js');
             if (F.Libjs[jsname]) return F.Libjs[jsname];
             if (F.Libjs[file]) return F.Libjs[file];
-            let contents = await T.getStore(T.LibStore).data(F.LibKey + file, T.version);
+            version = version||T.version;
+            let contents = await T.getStore(T.LibStore).data(F.LibKey + file,version);
             if (!contents) {
                 if (/\.zip$/.test(jsname)) await F.getLibjs(T.Libzip, process);
                 contents = await T.FetchItem({
@@ -1268,7 +1270,7 @@ const Nenge = new class NengeCores {
                     key: F.LibKey,
                     unpack: true,
                     filename: file,
-                    version: T.version,
+                    version:version,
                     process
                 });
             }

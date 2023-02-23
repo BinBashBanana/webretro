@@ -6,6 +6,7 @@ const Module = new class{
     totalDependencies = 0;
     serviceVersion = 'cache_v1';
     version = 'v6.5';
+    JSversion = 1;
     elmid = '#emu-webretro';
     bundleCdn = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro@master/";
     bundleCdnLatest = "https://cdn.jsdelivr.net/gh/BinBashBanana/webretro/";
@@ -53,27 +54,33 @@ const Module = new class{
             cores:M.isLocal?assets+'cores/':M.bundleCdnLatest+'cores/',
             bios:M.isLocal?assets+'bios/':M.biosCdn
         };
-        var ROOT = M.URL_PATH;
+        var ROOT = M.URL_PATH,version = M.isLocal?undefined:M.JSversion;
         T.lang = await T.FetchItem({
             url:ROOT['root']+'i18n/'+T.i18nName+'.json?'+T.time,
             process:e=>T.$(status).innerHTML = e,
-            type:'json'
+            type:'json',
+            version
         });
+        /*
         if(isInit){
             await T.FetchItem({
                 url:ROOT['root']+'zip/base.zip',
                 key:T.F.LibKey,
                 store:T.LibStore,
                 unpack:true,
-                process:e=>T.$(status).innerHTML = e
+                process:e=>T.$(status).innerHTML = e,
             });
         }
-        if(M.isLocal){
-            await T.addJS(ROOT['root']+'Module_Start.js?'+T.time);
-        }else{
-            await T.loadLibjs(ROOT['root']+'zip/Module_Start.min.zip',e=>T.$(status).innerHTML = e);
-            await T.loadLibjs('webretro.css')
-        }
+        */
+        //if(M.isLocal){
+        //    await T.addJS(ROOT['root']+'Module_Start.js?'+T.time);
+        //}else{
+            //await T.loadLibjs(ROOT['root']+'Module_Start.min.zip',e=>T.$(status).innerHTML = e,version);
+            await T.loadLibjs(ROOT['root']+'webretro.css',e=>T.$(status).innerHTML = e,version);
+            await T.loadLibjs(ROOT['root']+'nipplejs.js',e=>T.$(status).innerHTML = e,version);
+            await T.loadLibjs(ROOT['root']+'gamepad.min.js',e=>T.$(status).innerHTML = e,version);
+            await T.loadLibjs(ROOT['root']+'Module_Start.min.js',e=>T.$(status).innerHTML = e,version);
+        //}
         return;
         if(location.protocol=='http:') return;
         //var mobile_sw_version = localStorage.getItem('mobile_sw_version');
@@ -96,16 +103,17 @@ const Module = new class{
         }
     }
     setMEMFS(MEMFS, FS, RA, GLOBAL_BASE) {
-        if (!this.MEMFS && MEMFS) I.defines(this, {
+        var M = this,I=M.I; 
+        if (!M.MEMFS && MEMFS) I.defines(M, {
             MEMFS
         }, 1);
-        if (!this.FS && FS) I.defines(this, {
+        if (!M.FS && FS) I.defines(M, {
             FS
         }, 1);
-        if (!this.RA && RA) I.defines(this, {
+        if (!M.RA && RA) I.defines(M, {
             RA
         }, 1);
-        if (!this.GLOBAL_BASE && GLOBAL_BASE) I.defines(this, {
+        if (!M.GLOBAL_BASE && GLOBAL_BASE) I.defines(M, {
             GLOBAL_BASE
         }, 1);
     }

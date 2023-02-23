@@ -1,5 +1,8 @@
 ;
-
+function _RWebAudioStart() {
+    Module.CF('resume');
+    return true
+}
 function _RWebAudioInit(latency) {
     RA.numBuffers = latency * RA.context.sampleRate / (1e3 * RA.BUFFER_SIZE) | 0;
     if (RA.numBuffers < 2) RA.numBuffers = 2;
