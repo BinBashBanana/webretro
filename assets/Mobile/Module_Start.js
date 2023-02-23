@@ -70,7 +70,6 @@
 
         },
         $ = str => T.$(str, ElmBody);
-
     var cfgpath = "/home/web_user/retroarch/userdata/retroarch.cfg";
     I.assign(M.action, {
         async PlayNow() {
@@ -536,7 +535,7 @@
                 },
                 (entry, index) => {
                     let elm = T.$append(WelMenu, T.$ct('button', T.getLang(entry[1]), 'emu-wel-menu-btn emu-wel-btn'));
-                    T.on(elm, 'pointerdown', e => upload(index));
+                    T.on(elm, 'click', e => upload(index));
                 }
             );
             I.toArr({
@@ -790,7 +789,7 @@
                 }, 300);
             });
             let sbtn = T.$('.emu-settings-btn', ELMENTS['settings']);
-            T.on(sbtn, 'pointerdown', e => {
+            T.on(sbtn, 'click', e => {
                 ELMENTS['settings'].classList.toggle('active');
             });
             T.on(T.$('.emu-spopup-container', ELMENTS['settings']), 'transitionend', function (e) {
