@@ -14,8 +14,26 @@ const Module = new class{
     action={};
     isLocal = /^(127|localhost|172)/.test(location.host)
     constructor(T){
-        const M=this, I = T.I,ElmBody = T.$(M.elmid);
-        I.defines(M,{T,I},1);
+        const M=this;
+        M.JSURLINFO = document.currentScript && document.currentScript.src.split('?');
+        M.JSpath = (M.JSURLINFO||[''])[0].split('/').slice(0, -1).join('/') + '/';
+        if(!T){
+            let script = document.createElement('script');
+            script.src = M.JSpath+'common.min.js';
+            document.addEventListener('NengeReady',e=>{
+                console.log(e);
+                M.RunSart(e.detail);
+                M.installStart();
+
+            })
+            document.body.appendChild(script);
+        }else{
+            M.RunSart(T);
+            T.docload(e=>M.installStart(T));
+        }
+    }
+    RunSart(T){
+        const M=this, I = T.Set(M),ElmBody = T.$(M.elmid);
         T.DB_NAME = 'webretro_mobile'; //定义 indexdb name
         T.LibStore = 'data-libjs'; //定义 储存js文件表
         T.version = 1;
@@ -27,10 +45,6 @@ const Module = new class{
             'data-userdata': {timestamp: false},
             'data-libjs': {},
         }
-        M.JSURLINFO = document.currentScript && document.currentScript.src.split('?');
-        M.JSpath = (M.JSURLINFO||[''])[0].split('/').slice(0, -1).join('/') + '/';
-        M.CF = T.callaction;
-        M.BF = T.bindaction;
         ElmBody.classList.add('emu-container');
         ElmBody.classList.add('emu-'+T.i18nName);
         ElmBody.innerHTML = 
@@ -40,11 +54,11 @@ const Module = new class{
 <div class="emu-settings" hidden></div>
 <div class="emu-controls" hidden> </div>
 <div class="emu-dialog" hidden></div>`;
-        T.docload(e=>M.installStart());
+
     }
     async installStart(){
         let M = this,T=M.T,I=T.I,isInit=!0,status = '#emu-status';
-        Nenge.I.toArr(await indexedDB.databases(),entry=>{
+        I.toArr(await indexedDB.databases(),entry=>{
             if(entry['name']==T.DB_NAME)isInit = !1;
         });
         var assets = (M.JSpath).split('/').slice(0, -2).join('/') + '/';
@@ -72,21 +86,36 @@ const Module = new class{
             });
         }
         */
-        //if(M.isLocal){
-        //    await T.addJS(ROOT['root']+'Module_Start.js?'+T.time);
-        //}else{
+        if(M.isLocal){
+            await T.addJS(ROOT['root']+'Module_Start.js?'+T.time);
+            if(!T.$('link[rel="stylesheet"]')){
+                await T.addScript(
+                    ROOT['root']+'webretro.css',
+                    {
+                        process:e=>T.$(status).innerHTML = e,
+                        version
+                    }
+                );
+            }
+        }else{
             //await T.loadLibjs(ROOT['root']+'Module_Start.min.zip',e=>T.$(status).innerHTML = e,version);
-            await T.loadLibjs(ROOT['root']+'webretro.css',e=>T.$(status).innerHTML = e,version);
-            await T.loadLibjs(ROOT['root']+'nipplejs.js',e=>T.$(status).innerHTML = e,version);
-            await T.loadLibjs(ROOT['root']+'gamepad.min.js',e=>T.$(status).innerHTML = e,version);
+            await T.addScript(
+                ROOT['root']+'webretro.css',
+                {
+                    process:e=>T.$(status).innerHTML = e,
+                    version
+                }
+            );
+            //await T.loadLibjs(ROOT['root']+'nipplejs.js',e=>T.$(status).innerHTML = e,version);
+            //await T.loadLibjs(ROOT['root']+'gamepad.min.js',e=>T.$(status).innerHTML = e,version);
             await T.loadLibjs(ROOT['root']+'Module_Start.min.js',e=>T.$(status).innerHTML = e,version);
-        //}
+        }
         return;
         if(location.protocol=='http:') return;
         //var mobile_sw_version = localStorage.getItem('mobile_sw_version');
         //if(!mobile_sw_version)localStorage.setItem('mobile_sw_version',M.version);
         if('serviceWorker' in navigator){
-            navigator.serviceWorker.register('./xiunoii/assets/webretro/Mobile_sw.js').then(worker=>{
+            navigator.serviceWorker.register(ROOT['root']+'sw.js').then(worker=>{
                 /*
                 if(mobile_sw_version != M.version){
                     worker.update(()=>{
@@ -117,4 +146,4 @@ const Module = new class{
             GLOBAL_BASE
         }, 1);
     }
-}(Nenge);
+}(window.Nenge);

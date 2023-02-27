@@ -1,12 +1,12 @@
-var CACHE_NAME = localStorage.getItem('mobile_sw_version');
-var path = '/xiunoii/assets/webretro/';
+var CACHE_NAME = localStorage.getItem('mobile_sw_version')||'v1';
+var path = '/assets/Mobile/';
 var urlsToCache = [
-    '/xiunobbs4/assets/js/common.js',
+    path+'common.min.js',
     path+'Module.js',
     path+'webretro.css',
-    '/xiunoii/manifest.json',
-    '/xiunoii/favicon.ico',
-    '/xiunoii/',
+    'manifest.json',
+    'favicon.ico',
+    'm.html',
 ];
 
 let lang = navigator.language.split('-');
